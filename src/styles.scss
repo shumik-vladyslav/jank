@@ -1,0 +1,15 @@
+// Import Fuse core library
+@import "@fuse/scss/core";
+
+// Import app.theme.scss
+@import "app/app.theme";
+
+.df{
+    display: flex;
+}
+.ai-c{
+    align-items: center;
+}
+.jc-fe{
+    justify-content: flex-end;
+}
