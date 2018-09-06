@@ -34,8 +34,8 @@
             <div class="content p-24">
 
                 <div class="df">
-                    <div>
-                        <img width="250px" style="margin-right: 20px" src="https://dxlfb468n8ekd.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u470.png?token=d07ab274b8ed082e70b7e9e9e863859c"
+                    <div class="img1-wrap">
+                        <img     src="https://dxlfb468n8ekd.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u470.png?token=d07ab274b8ed082e70b7e9e9e863859c"
                             alt="">
                     </div>
                     <div class="selects-container">
@@ -48,7 +48,7 @@
 
                             <div class="select-wrap">
                                 <mat-form-field>
-                                    <mat-select placeholder="Make a choice"  [(ngModel)]="obj1[item.key]" (ngModelChange)="calculateRisk($event)">
+                                    <mat-select [(ngModel)]="obj1[item.key]" (ngModelChange)="calculateRisk($event)">
                                         <mat-option  *ngFor="let i of choice" [value]="i.value">
                                             {{i.viewValue}}
                                         </mat-option> 
@@ -74,11 +74,10 @@
             <div class="content p-24">
 
                 <div class="df">
-                    <div>
-                        <img width="145px" style="margin-right: 20px" src="https://d26uhratvi024l.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u471.png?token=fafcbb58d125bad11cef21b3f472235d"
-                            alt="">
+                    <div class="img2-wrap">
+                        <img src="https://d26uhratvi024l.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u471.png?token=fafcbb58d125bad11cef21b3f472235d" alt="">
                     </div>
-                    <div class="selects-container">
+                    <div class="selects-container m-auto m-l-0">
 
                         <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data2">
 
@@ -88,7 +87,7 @@
 
                             <div class="select-wrap">
                                 <mat-form-field>
-                                    <mat-select placeholder="Make a choice" [(ngModel)]="obj2[item.key]" (ngModelChange)="calculateRisk($event)">
+                                    <mat-select [(ngModel)]="obj2[item.key]" (ngModelChange)="calculateRisk($event)">
                                         <mat-option *ngFor="let i of choice" [value]="i.value">
                                             {{i.viewValue}}
                                         </mat-option>
@@ -117,21 +116,21 @@
                     <div>
 
                     </div>
-                    <div class="selects-container">
+                    <div class="selects-container full-width">
 
                         <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let item of data3">
-                            <div style="min-width: 145px; margin-right: 20px;">
-                                <img width="100px" src="{{item.img}}"
+                            <div style="min-width: 225px; margin-right: 56px;">
+                                <img width="100%" src="{{item.img}}"
                                     alt="">
                             </div>
-                            <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100%">
+                            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="100%">
                                 <div class="lable-select">
                                     {{item.name}}
                                 </div>
 
                                 <div class="select-wrap">
                                     <mat-form-field>
-                                        <mat-select placeholder="Make a choice"  [(ngModel)]="obj3[item.key]" (ngModelChange)="calculateRisk($event)">
+                                        <mat-select [(ngModel)]="obj3[item.key]" (ngModelChange)="calculateRisk($event)">
                                             <mat-option *ngFor="let i of choice" [value]="i.value">
                                                 {{i.viewValue}}
                                             </mat-option>
@@ -158,7 +157,7 @@
             <div class="content p-24">
 
                 <div class="df">
-                    <div>
+                    <div class="img4-wrap">
                         <img width="137px" height="213px" style="margin-right: 20px" src="https://d26uhratvi024l.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u498.png?token=349e511ea0eec7e80e61044fdbeffb78"
                             alt="">
                     </div>
@@ -172,7 +171,7 @@
 
                             <div class="select-wrap">
                                 <mat-form-field>
-                                    <mat-select placeholder="Make a choice" [(ngModel)]="obj4[item.key]" (ngModelChange)="calculateRisk($event)">
+                                    <mat-select [(ngModel)]="obj4[item.key]" (ngModelChange)="calculateRisk($event)">
                                         <mat-option *ngFor="let i of choice" [value]="i.value">
                                             {{i.viewValue}}
                                         </mat-option>

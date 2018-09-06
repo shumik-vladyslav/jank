@@ -7,7 +7,7 @@
 }
 .lable-select{
     font-size: 20px;
-    max-width: 400px;
+    max-width: 330px;
 }
 .second-caption{
     font-size: 20px;
@@ -28,4 +28,39 @@
     margin-top: 20px;
     margin-bottom: 20px;
     color: #039be5;
+}
+.img1-wrap{
+    width: 290px;
+    img{
+        max-width: unset;
+        height: 334px;
+        margin-left: -50px;
+        width: 505px;
+    }
+}
+.img2-wrap{
+    img{
+        margin-right: 20px;
+        width: 264px;
+        position: relative;
+        top: 7px;
+    }
+}
+.img4-wrap{
+    width: 282px;
+    padding-right: 20px;
+    img{
+        margin-right: 20px;
+        height: 100%;
+        width: 100%;
+    }
+}
+.full-width{
+    width: 100%;
+}
+.m-auto{
+    margin: auto;
+} 
+.m-l-0{
+    margin-left: 0 !important;
 }
