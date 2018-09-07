@@ -1,0 +1,81 @@
+<!-- <mat-radio-group fxLayout="column" fxLayoutAlign="start start">
+    <mat-radio-button class="mb-12" value="theme-default">Default Light</mat-radio-button>
+    <mat-radio-button class="mb-12" value="theme-yellow-light">Yellow Light</mat-radio-button>
+    <mat-radio-button class="mb-12" value="theme-blue-gray-dark">Blue-Gray Dark</mat-radio-button>
+    <mat-radio-button class="mb-12" value="theme-pink-dark">Pink Dark</mat-radio-button>
+</mat-radio-group> -->
+<!-- <mat-checkbox>Check me!</mat-checkbox> -->
+
+
+<div class="hide" [ngClass]="{'show': showSuccessMessage}">
+  <app-success-message>
+    <div class="m-b-10">
+      You Erase Request has been successfully registered. Your request will be completed within the time frame required by the
+      compliance.
+    </div>
+    <div class="text-center">
+      <button mat-raised-button color="success" (click)="showSuccessMessage = false">Ok</button>
+    </div>
+  </app-success-message>
+</div>
+<div class="page-layout carded fullwidth">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg accent"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <!-- CONTENT HEADER -->
+    <div class="header accent p-24" fxLayout="row" fxLayoutAlign="center center">
+      <h2 class="m-0 fs-30">
+        Request to Erase Personal Data
+      </h2>
+    </div>
+    <!-- / CONTENT HEADER -->
+
+    <!-- CONTENT CARD -->
+    <div class="content-card">
+      <div class="toolbar px-24 py-8 text-center">
+        <span class="text-center">
+          After you submit the request, your data will be removed or eliminated from usage within 5 business days.
+        </span>
+      </div>
+      <div class="content p-24 fs-16">
+        <h1 class="text-center m-t-0">USER AGREEMENT</h1>
+        This is a sample only, and contains terms and conditions of use that are the most common requirements for this type of agreement.
+        It is recommended that each School District review the User Agreement template with their legal counsel so that it
+        may be adjusted and tailored to reflect the particular needs and unique qualities of the District’s own rental facilities
+        and grounds. This sample agreement is designed to cover casual rentals where the risk to the school district (the
+        “District”) and individuals renting and attending (the “User”) is minimal. It is not intended for use when exclusive
+        access (ex: daycare in school) arrangements are being made, or where the purpose of the rental is for an activity
+        that carries a higher degree of risk. If you are unsure whether or not the User agreement is appropriate for your
+        particular circumstances, contact your Schools Protection Program risk consultant (www.cipherworks.io) .
+      </div>
+
+      <div class="content p-24 bot-wrap">
+        <div class="m-b-10">
+            <!-- (change)="checkValue(isChecked)" -->
+          <mat-checkbox [(ngModel)]="agreeTerms">Agree to the terms and Conditions</mat-checkbox>
+        </div>
+        <div class="m-b-10">
+          <mat-checkbox [(ngModel)]="understund">I understand that once data is erased it can not be retrieved again</mat-checkbox>
+        </div>
+        <div *ngIf="showError === true && ( !agreeTerms || !understund )" class="message-box error fs-16 m-b-10">
+          <span>
+            Please confirm the agreement with conditions
+          </span>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="accent" class="m-r-20" (click)="submit()">Submit</button>
+          <button mat-raised-button color="accent">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <!-- / CONTENT CARD -->
+
+  </div>
+  <!-- / CENTER -->
+
+</div>

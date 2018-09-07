@@ -10,13 +10,41 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Calculate',
                 title    : 'Calculate',
-                translate: 'NAV.SAMPLE.TITLE',
+                // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
                 url      : '/sample',
                 badge    : {
                     title    : '25',
-                    translate: 'NAV.SAMPLE.BADGE',
+                    // translate: 'NAV.SAMPLE.BADGE',
+                    bg       : '#F44336',
+                    fg       : '#FFFFFF'
+                }
+            },
+            {
+                id       : 'Erase Request',
+                title    : 'Erase Request',
+                // translate: 'NAV.SAMPLE.TITLE',
+                type     : 'item',
+                icon     : 'equalizer',
+                url      : '/erase-equest',
+                badge    : {
+                    title    : '25',
+                    // translate: 'NAV.SAMPLE.BADGE',
+                    bg       : '#F44336',
+                    fg       : '#FFFFFF'
+                }
+            },
+            {
+                id       : 'Report Request',
+                title    : 'Report Request',
+                // translate: 'NAV.SAMPLE.TITLE',
+                type     : 'item',
+                icon     : 'equalizer',
+                url      : '/report-equest',
+                badge    : {
+                    title    : '25',
+                    // translate: 'NAV.SAMPLE.BADGE',
                     bg       : '#F44336',
                     fg       : '#FFFFFF'
                 }

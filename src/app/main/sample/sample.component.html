@@ -24,175 +24,188 @@
         <!-- CONTENT CARD -->
         <div class="content-card">
 
-            <!-- CONTENT TOOLBAR -->
-            <div class="toolbar px-24 py-8 second-caption">
-                <span>1. Do you use the following data in Unencrypted / Unmasked form?</span>
-            </div>
-            <!-- / CONTENT TOOLBAR -->
+            <div fxLayout="row" fxLayoutAlign="start start">
 
-            <!-- CONTENT -->
-            <div class="content p-24">
+                    <div class="scroll-wrap-select">
 
-                <div class="df">
-                    <div class="img1-wrap">
-                        <img     src="https://dxlfb468n8ekd.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u470.png?token=d07ab274b8ed082e70b7e9e9e863859c"
-                            alt="">
-                    </div>
-                    <div class="selects-container">
 
-                        <div class="df ai-c jc-fe" *ngFor="let item of data1">
-
-                            <div class="lable-select">
-                                {{item.name}}
+                            <!-- CONTENT TOOLBAR -->
+                            <div class="toolbar px-24 py-8 second-caption">
+                                <span>1. Do you use the following data in Unencrypted / Unmasked form?</span>
                             </div>
-
-                            <div class="select-wrap">
-                                <mat-form-field>
-                                    <mat-select [(ngModel)]="obj1[item.key]" (ngModelChange)="calculateRisk($event)">
-                                        <mat-option  *ngFor="let i of choice" [value]="i.value">
-                                            {{i.viewValue}}
-                                        </mat-option> 
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- / CONTENT -->
-
-            <!-- CONTENT TOOLBAR -->
-            <div class="toolbar px-24 py-8 second-caption">
-                <span>2. QA / Development</span>
-            </div>
-            <!-- / CONTENT TOOLBAR -->
-
-            <!-- CONTENT -->
-            <div class="content p-24">
-
-                <div class="df">
-                    <div class="img2-wrap">
-                        <img src="https://d26uhratvi024l.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u471.png?token=fafcbb58d125bad11cef21b3f472235d" alt="">
-                    </div>
-                    <div class="selects-container m-auto m-l-0">
-
-                        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data2">
-
-                            <div class="lable-select">
-                                {{item.name}}
-                            </div>
-
-                            <div class="select-wrap">
-                                <mat-form-field>
-                                    <mat-select [(ngModel)]="obj2[item.key]" (ngModelChange)="calculateRisk($event)">
-                                        <mat-option *ngFor="let i of choice" [value]="i.value">
-                                            {{i.viewValue}}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- / CONTENT -->
-
-            <!-- CONTENT TOOLBAR -->
-            <div class="toolbar px-24 py-8 second-caption">
-                <span>3. Data Warehouse / Big Data / AI</span>
-            </div>
-            <!-- / CONTENT TOOLBAR -->
-
-            <!-- CONTENT -->
-            <div class="content p-24">
-
-                <div class="df ai-c">
-                    <div>
-
-                    </div>
-                    <div class="selects-container full-width">
-
-                        <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let item of data3">
-                            <div style="min-width: 225px; margin-right: 56px;">
-                                <img width="100%" src="{{item.img}}"
-                                    alt="">
-                            </div>
-                            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="100%">
-                                <div class="lable-select">
-                                    {{item.name}}
+                            <!-- / CONTENT TOOLBAR -->
+            
+                            <!-- CONTENT -->
+                            <div class="content p-24">
+            
+                                <div class="df">
+                                    <div class="img1-wrap">
+                                        <img src="/assets/images/img/12.jpg" alt="">
+                                    </div>
+                                    <div class="selects-container">
+            
+                                        <div class="df ai-c jc-fe" *ngFor="let item of data1">
+                                            <div class="lable-select">
+                                                {{item.name}}
+                                            </div>
+            
+                                            <div class="select-wrap">
+                                                <mat-form-field>
+                                                    <mat-select [(ngModel)]="obj1[item.key]" (ngModelChange)="calculateRisk($event)">
+                                                        <mat-option *ngFor="let i of choice" [value]="i.value">
+                                                            {{i.viewValue}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+            
+                                    </div>
+            
                                 </div>
-
-                                <div class="select-wrap">
-                                    <mat-form-field>
-                                        <mat-select [(ngModel)]="obj3[item.key]" (ngModelChange)="calculateRisk($event)">
-                                            <mat-option *ngFor="let i of choice" [value]="i.value">
-                                                {{i.viewValue}}
-                                            </mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
+            
+                            </div>
+                            <!-- / CONTENT -->
+            
+                            <!-- CONTENT TOOLBAR -->
+                            <div class="toolbar px-24 py-8 second-caption">
+                                <span>2. QA / Development</span>
+                            </div>
+                            <!-- / CONTENT TOOLBAR -->
+            
+                            <!-- CONTENT -->
+                            <div class="content p-24">
+            
+                                <div class="df">
+                                    <div class="img2-wrap">
+                                        <img src="/assets/images/img/qa.png" alt="">
+                                    </div>
+                                    <div class="selects-container m-auto m-l-0">
+            
+                                        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data2">
+            
+                                            <div class="lable-select">
+                                                {{item.name}}
+                                            </div>
+            
+                                            <div class="select-wrap">
+                                                <mat-form-field>
+                                                    <mat-select [(ngModel)]="obj2[item.key]" (ngModelChange)="calculateRisk($event)">
+                                                        <mat-option *ngFor="let i of choice" [value]="i.value">
+                                                            {{i.viewValue}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+            
+                                        </div>
+            
+                                    </div>
                                 </div>
+            
                             </div>
-
+                            <!-- / CONTENT -->
+            
+                            <!-- CONTENT TOOLBAR -->
+                            <div class="toolbar px-24 py-8 second-caption">
+                                <span>3. Data Warehouse / Big Data / AI</span>
+                            </div>
+                            <!-- / CONTENT TOOLBAR -->
+            
+                            <!-- CONTENT -->
+                            <div class="content p-24">
+            
+                                <div class="df ai-c">
+                                    <div>
+            
+                                    </div>
+                                    <div class="selects-container full-width">
+            
+                                        <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let item of data3">
+                                            <div style="min-width: 225px; margin-right: 56px;">
+                                                <img width="100%" src="{{item.img}}" alt="">
+                                            </div>
+                                            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="100%">
+                                                <div class="lable-select">
+                                                    {{item.name}}
+                                                </div>
+            
+                                                <div class="select-wrap">
+                                                    <mat-form-field>
+                                                        <mat-select [(ngModel)]="obj3[item.key]" (ngModelChange)="calculateRisk($event)">
+                                                            <mat-option *ngFor="let i of choice" [value]="i.value">
+                                                                {{i.viewValue}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+            
+                                        </div>
+            
+                                    </div>
+                                </div>
+            
+                            </div>
+                            <!-- / CONTENT -->
+            
+                            <!-- CONTENT TOOLBAR -->
+                            <div class="toolbar px-24 py-8 second-caption">
+                                <span>4. Vendor / Partner Workforce</span>
+                            </div>
+                            <!-- / CONTENT TOOLBAR -->
+            
+                            <!-- CONTENT -->
+                            <div class="content p-24">
+            
+                                <div class="df">
+                                    <div class="img4-wrap">
+                                        <img width="137px" height="213px" style="margin-right: 20px" src="/assets/images/img/comunity.png" alt="">
+                                    </div>
+                                    <div class="selects-container">
+            
+                                        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data4">
+            
+                                            <div class="lable-select">
+                                                {{item.name}}
+                                            </div>
+            
+                                            <div class="select-wrap">
+                                                <mat-form-field>
+                                                    <mat-select [(ngModel)]="obj4[item.key]" (ngModelChange)="calculateRisk($event)">
+                                                        <mat-option *ngFor="let i of choice" [value]="i.value">
+                                                            {{i.viewValue}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+            
+                                        </div>
+            
+                                    </div>
+                                </div>
+            
+                            </div>
+                            <!-- / CONTENT -->
+            
+            
+                        </div>
+                        <div class="risk-wrap">
+                            <div class="lable-risk">
+                                Your Data Breach Risk
+                            </div>
+                            <img width="134px" style="margin-right: 20px" src="/assets/images/img/risk.jpg" alt="">
+                            <div class="value-risk">{{score.toFixed(2)}}%</div>
                         </div>
 
-                    </div>
-                </div>
-
             </div>
-            <!-- / CONTENT -->
 
-            <!-- CONTENT TOOLBAR -->
-            <div class="toolbar px-24 py-8 second-caption">
-                <span>4. Vendor / Partner Workforce</span>
-            </div>
-            <!-- / CONTENT TOOLBAR -->
-
-            <!-- CONTENT -->
-            <div class="content p-24">
-
-                <div class="df">
-                    <div class="img4-wrap">
-                        <img width="137px" height="213px" style="margin-right: 20px" src="https://d26uhratvi024l.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u498.png?token=349e511ea0eec7e80e61044fdbeffb78"
-                            alt="">
-                    </div>
-                    <div class="selects-container">
-
-                        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data4">
-
-                            <div class="lable-select">
-                                {{item.name}}
-                            </div>
-
-                            <div class="select-wrap">
-                                <mat-form-field>
-                                    <mat-select [(ngModel)]="obj4[item.key]" (ngModelChange)="calculateRisk($event)">
-                                        <mat-option *ngFor="let i of choice" [value]="i.value">
-                                            {{i.viewValue}}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- / CONTENT -->
-
-            <div fxLayout="row" fxLayoutAlign="center center">
-                <img width="134px" style="margin-right: 20px" src="https://d26uhratvi024l.cloudfront.net/gsc/G0AI8E/9e/b8/00/9eb8001d29e5480d8c4f5cd30519176d/images/riskcalculator/u499.png?token=2349e1eddb106bac0f760b5beaaff6a8" alt="">
+            <!-- <div fxLayout="row" fxLayoutAlign="center center">
+                <img width="134px" style="margin-right: 20px" src="/assets/images/img/risk.jpg" alt="">
                 <div class="lable-risk">
                     Your Data Breach Risk <span class="value-risk">{{score.toFixed(2)}}%</span>
                 </div>
-            </div>
+            </div> -->
             <div class="coment">
                 We do not save the information you enter or the Risk Score.
             </div>

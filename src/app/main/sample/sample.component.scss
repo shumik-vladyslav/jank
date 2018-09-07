@@ -1,5 +1,5 @@
 .select-wrap{
-    width: 180px;
+    width: 153px;
     margin-left: 10px;
     mat-form-field{
         width: 100%;
@@ -12,14 +12,16 @@
 .second-caption{
     font-size: 20px;
 }
-.fs-30{
-    font-size: 30px;
+.risk-wrap{
+    text-align: center;
+    max-width: 202px;
+    margin-top: 77px;
 }
 .lable-risk{
-    font-size: 48px;
+    font-size: 34px;
 }
 .value-risk{
-    font-size: 72px;
+    font-size: 45px;
     color: rgb(253, 69, 69);
 }
 .coment{
@@ -35,7 +37,7 @@
         max-width: unset;
         height: 334px;
         margin-left: -50px;
-        width: 505px;
+        width: 440px;
     }
 }
 .img2-wrap{
@@ -55,12 +57,11 @@
         width: 100%;
     }
 }
-.full-width{
-    width: 100%;
+
+.scroll-wrap-select{
+    max-height: calc( 100vh - 160px );
+    overflow-y: auto;
 }
-.m-auto{
-    margin: auto;
-} 
-.m-l-0{
-    margin-left: 0 !important;
+.second-caption{
+    border-bottom: 1px solid #eaeaea;
 }
