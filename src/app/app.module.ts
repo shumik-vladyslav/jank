@@ -20,11 +20,14 @@ import { EraseRequestComponent } from './main/erase-request/erase-request.compon
 import { SuccessMessageComponent } from 'app/main/success-message/success-message.component';
 
 import {
-    MatButtonModule, MatCheckboxModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatOptionModule, MatRadioModule, MatSelectModule, MatSlideToggleModule
+    MatButtonModule, MatCheckboxModule, MatInputModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatOptionModule, MatRadioModule, MatSelectModule, MatSlideToggleModule
 } from '@angular/material';
 import { ReportRequestComponent } from './main/report-request/report-request.component';
 import { FormsModule } from '@angular/forms';
-
+import { SingInComponent } from './main/sing-in/sing-in.component';
+import { ForgotPasswordComponent } from './main/forgot-password/forgot-password.component';
+import { SingUpComponent } from './main/sing-up/sing-up.component';
+import { ChangePasswordComponent } from './main/change-password/change-password.component';
 
 
 const appRoutes: Routes = [
@@ -35,6 +38,18 @@ const appRoutes: Routes = [
     {
         path     : 'report-equest',
         component: ReportRequestComponent
+    },
+    {
+        path     : 'login',
+        component: SingInComponent
+    },
+    {
+        path     : 'register',
+        component: SingUpComponent
+    },
+    {
+        path     : 'change-pass',
+        component: ChangePasswordComponent
     }
 ];
 
@@ -43,7 +58,11 @@ const appRoutes: Routes = [
         AppComponent, 
         EraseRequestComponent,
         SuccessMessageComponent,
-        ReportRequestComponent
+        ReportRequestComponent,
+        SingInComponent,
+        ForgotPasswordComponent,
+        SingUpComponent,
+        ChangePasswordComponent,
     ],
     imports     : [
         BrowserModule,
@@ -67,6 +86,7 @@ const appRoutes: Routes = [
         MatRadioModule,
         MatSelectModule,
         MatSlideToggleModule,
+        MatInputModule,
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
         FuseProgressBarModule,

@@ -65,3 +65,21 @@
 .second-caption{
     border-bottom: 1px solid #eaeaea;
 }
+/* width */
+.scroll-wrap-select::-webkit-scrollbar {
+    width: 0px;
+}
+/* Track */
+.scroll-wrap-select::-webkit-scrollbar-track {
+    // background: #f1f1f1; 
+}
+ 
+/* Handle */
+.scroll-wrap-select::-webkit-scrollbar-thumb {
+    // background: #888; 
+}
+
+/* Handle on hover */
+.scroll-wrap-select::-webkit-scrollbar-thumb:hover {
+    // background: #555; 
+}

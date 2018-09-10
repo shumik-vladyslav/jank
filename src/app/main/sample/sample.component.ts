@@ -142,10 +142,10 @@ export class SampleComponent {
         this.numerator = 0;
         this.multiplier = 0;
         this.score = 0;
-        console.log(item, this.obj1);
+        // console.log(item, this.obj1);
         Object.keys(this.obj1).forEach( (key) => {
 
-            console.log(key, this.obj1[key]);
+            // console.log(key, this.obj1[key]);
             if( this.obj1[key] === 'yes' ){
                 this.yesCount1++
             } else if ( this.obj1[key] === 'no' ) {
@@ -155,7 +155,7 @@ export class SampleComponent {
 
         Object.keys(this.obj2).forEach( (key) => {
 
-            console.log(key, this.obj2[key]);
+            // console.log(key, this.obj2[key]);
             if( this.obj2[key] === 'yes' ){
                 this.yesCount2++
             } else if ( this.obj2[key] === 'no' ) {
@@ -165,7 +165,7 @@ export class SampleComponent {
 
         Object.keys(this.obj3).forEach( (key) => {
 
-            console.log(key, this.obj3[key]);
+            // console.log(key, this.obj3[key]);
             if( this.obj3[key] === 'yes' ){
                 this.yesCount3++
             } else if ( this.obj3[key] === 'no' ) {
@@ -175,7 +175,7 @@ export class SampleComponent {
 
         Object.keys(this.obj4).forEach( (key) => {
 
-            console.log(key, this.obj4[key]);
+            // console.log(key, this.obj4[key]);
             if( this.obj4[key] === 'yes' ){
                 this.yesCount3++
             } else if ( this.obj4[key] === 'no' ) {
@@ -202,7 +202,7 @@ export class SampleComponent {
         // score
         this.score = (this.multiplier * ( this.yes4 + this.yes3 + this.yes4 ) / ( this.yesNo2 + this.yesNo3 + this.yesNo4 )) * 100; 
 
-        if ( this.score >= 70 && this.score <= 80){
+        if ( this.score >= 70 && this.score < 80){
             this.score = Math.floor(Math.random() * (80 - 70) + 70);
         }
 
