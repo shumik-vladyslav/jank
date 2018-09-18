@@ -28,6 +28,9 @@ import { SingInComponent } from './main/sing-in/sing-in.component';
 import { ForgotPasswordComponent } from './main/forgot-password/forgot-password.component';
 import { SingUpComponent } from './main/sing-up/sing-up.component';
 import { ChangePasswordComponent } from './main/change-password/change-password.component';
+import { VerifyOperationsComponent } from './main/verify-operations/verify-operations.component';
+import { VerifyService } from './services/verify.service';
+import { HttpModule } from '@angular/http';
 
 
 const appRoutes: Routes = [
@@ -50,6 +53,10 @@ const appRoutes: Routes = [
     {
         path     : 'change-pass',
         component: ChangePasswordComponent
+    },
+    {
+        path     : 'verify-operations',
+        component: VerifyOperationsComponent
     }
 ];
 
@@ -63,6 +70,7 @@ const appRoutes: Routes = [
         ForgotPasswordComponent,
         SingUpComponent,
         ChangePasswordComponent,
+        VerifyOperationsComponent,
     ],
     imports     : [
         BrowserModule,
@@ -71,6 +79,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes, { scrollPositionRestoration: "enabled"}),
         TranslateModule.forRoot(),
         FormsModule,
+        HttpModule,
         // Material moment date module
         MatMomentDateModule,
 
@@ -100,7 +109,8 @@ const appRoutes: Routes = [
     ],
     bootstrap   : [
         AppComponent
-    ]
+    ],
+    providers: [VerifyService],
 })
 export class AppModule
 {

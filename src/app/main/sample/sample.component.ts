@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
@@ -20,8 +20,21 @@ export class SampleComponent {
         private _fuseTranslationLoaderService: FuseTranslationLoaderService
     ) {
         this._fuseTranslationLoaderService.loadTranslations(english, turkish);
+        window.onscroll =() => { this.myFunction() };
     }
 
+    myFunction() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            document.getElementById("myP").className = "test";
+        } else {
+            document.getElementById("myP").className = "";
+        }
+        console.log('test')
+    }
+    @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+        console.log($event);
+        console.log("scrolling");
+      } 
     obj1 = {
         drop1: "no",
         drop2: "no",
@@ -143,66 +156,66 @@ export class SampleComponent {
         this.multiplier = 0;
         this.score = 0;
         // console.log(item, this.obj1);
-        Object.keys(this.obj1).forEach( (key) => {
+        Object.keys(this.obj1).forEach((key) => {
 
             // console.log(key, this.obj1[key]);
-            if( this.obj1[key] === 'yes' ){
+            if (this.obj1[key] === 'yes') {
                 this.yesCount1++
-            } else if ( this.obj1[key] === 'no' ) {
+            } else if (this.obj1[key] === 'no') {
                 this.noCount1++
             }
         });
 
-        Object.keys(this.obj2).forEach( (key) => {
+        Object.keys(this.obj2).forEach((key) => {
 
             // console.log(key, this.obj2[key]);
-            if( this.obj2[key] === 'yes' ){
+            if (this.obj2[key] === 'yes') {
                 this.yesCount2++
-            } else if ( this.obj2[key] === 'no' ) {
+            } else if (this.obj2[key] === 'no') {
                 this.noCount2++
             }
         });
 
-        Object.keys(this.obj3).forEach( (key) => {
+        Object.keys(this.obj3).forEach((key) => {
 
             // console.log(key, this.obj3[key]);
-            if( this.obj3[key] === 'yes' ){
+            if (this.obj3[key] === 'yes') {
                 this.yesCount3++
-            } else if ( this.obj3[key] === 'no' ) {
+            } else if (this.obj3[key] === 'no') {
                 this.noCount3++
             }
         });
 
-        Object.keys(this.obj4).forEach( (key) => {
+        Object.keys(this.obj4).forEach((key) => {
 
             // console.log(key, this.obj4[key]);
-            if( this.obj4[key] === 'yes' ){
+            if (this.obj4[key] === 'yes') {
                 this.yesCount3++
-            } else if ( this.obj4[key] === 'no' ) {
+            } else if (this.obj4[key] === 'no') {
                 this.noCount3++
             }
         });
         // 1 quesions
         this.denominator = +this.yesCount1 + +this.noCount1;
         this.numerator = +this.yesCount1;
-        if (this.denominator >= 0){
+        if (this.denominator >= 0) {
             this.multiplier = this.numerator / this.denominator;
-        } else if ( this.denominator = 0 ){
+        } else if (this.denominator = 0) {
             this.multiplier = 0;
         }
         // 2 quesions
-            this.yesNo2 = ( this.yesCount2 + this.noCount2 ) * 100;
-            this.yes2 = this.yesCount2 * 100;
+        this.yesNo2 = (this.yesCount2 + this.noCount2) * 100;
+        this.yes2 = this.yesCount2 * 100;
         // 3 quesions
-            this.yesNo3 = ( this.yesCount3 + this.noCount3 ) * 100;
-            this.yes3 = this.yesCount3 * 100;
+        this.yesNo3 = (this.yesCount3 + this.noCount3) * 100;
+        this.yes3 = this.yesCount3 * 100;
         // 4 quesions
-            this.yesNo4 = ( this.yesCount4 + this.noCount4 ) * 50;
-            this.yes4 = this.yesCount4 * 50;
+        this.yesNo4 = (this.yesCount4 + this.noCount4) * 50;
+        this.yes4 = this.yesCount4 * 50;
         // score
-        this.score = (this.multiplier * ( this.yes4 + this.yes3 + this.yes4 ) / ( this.yesNo2 + this.yesNo3 + this.yesNo4 )) * 100; 
+        this.score = (this.multiplier * (this.yes4 + this.yes3 + this.yes4) / (this.yesNo2 + this.yesNo3 + this.yesNo4)) * 100;
 
-        if ( this.score >= 70 && this.score < 80){
+        if (this.score >= 70 && this.score < 80) {
             this.score = Math.floor(Math.random() * (80 - 70) + 70);
         }
 
@@ -227,5 +240,10 @@ export class SampleComponent {
         //     this.score,
         //  );
     }
+
     
+    // @HostListener('scroll', ['$event'])
+    //     onElementScroll($event) {
+    //         console.log($event)
+    //     }
 }

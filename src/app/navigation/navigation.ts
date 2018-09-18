@@ -78,12 +78,12 @@ export const navigation: FuseNavigation[] = [
                 }
             },
             {
-                id       : 'Change Password',
-                title    : 'Change Password',
+                id       : 'Verify Operations',
+                title    : 'Verify Operations',
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/change-pass',
+                url      : '/verify-operations',
                 badge    : {
                     title    : '25',
                     // translate: 'NAV.SAMPLE.BADGE',

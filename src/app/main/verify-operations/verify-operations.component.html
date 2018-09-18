@@ -1,0 +1,84 @@
+<div class="page-layout carded fullwidth">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg accent"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <!-- CONTENT HEADER -->
+    <div class="header accent p-24" fxLayout="row" fxLayoutAlign="center center">
+      <h2 class="m-0 fs-30">
+        Verify Operations
+      </h2>
+    </div>
+    <!-- / CONTENT HEADER -->
+
+    <!-- CONTENT CARD -->
+    <div class="content-card m-b-20 width-95 m-auto">
+
+      <div class="content p-24 fs-16">
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+          <div fxLayout="column" class="width-50">
+            <mat-form-field>
+              <mat-select placeholder="Key Context">
+                <mat-option *ngFor="let item of items" [value]="item.value">
+                  {{item.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Service URI" [(ngModel)]="serviceURI" (ngModelChange)="testFunc()">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="SigId" value="">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- / CONTENT CARD -->
+
+    <!-- CONTENT CARD -->
+    <div class="content-card m-b-20">
+
+      <div class="content p-24 fs-16">
+        <div class="header-table table-row">
+          <div class="item-tabel">Data Type</div>
+          <div class="item-tabel">Value</div>
+          <div class="item-tabel">ENCRYPTED</div>
+          <div class="item-tabel">UNENCRYPTED</div>
+        </div>
+        <div class="table-row">
+          <div class="item-tabel">
+            Date
+          </div>
+          <div class="item-tabel">
+            <mat-form-field class="example-full-width full-width">
+              <!-- <input matInput type="date" value="">
+              <input matInput type="datetime-local" value=""> -->
+              <input matInput type="text" value="">
+              <!-- <input matInput type="tel" value="">
+              <input matInput type="email" value=""> -->
+            </mat-form-field>
+          </div>
+          <div class="item-tabel">
+            12/30/2077
+          </div>
+          <div class="item-tabel">
+            10/18/2018
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- / CONTENT CARD -->
+
+  </div>
+  <!-- / CENTER -->
+
+</div>

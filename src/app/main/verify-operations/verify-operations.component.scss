@@ -1,0 +1,19 @@
+.table-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .item-tabel{
+        width: calc(100% / 4);
+        min-width: 180px;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center
+    }
+}
+.header-table{
+    margin-bottom: 10px;
+    .item-tabel{
+        font-size: 16px;
+        font-weight: 500;
+    }   
+}
