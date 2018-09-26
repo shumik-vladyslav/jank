@@ -7,6 +7,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { SampleComponent } from './sample.component';
 import { MatSelectModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import CountoModule from 'angular2-counto';
 
 const routes = [
     {
@@ -26,7 +27,8 @@ const routes = [
 
         FuseSharedModule,
         MatSelectModule,
-        FormsModule
+        FormsModule,
+        CountoModule
     ],
     exports     : [
         SampleComponent,

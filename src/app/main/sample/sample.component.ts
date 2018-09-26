@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
@@ -17,7 +17,8 @@ export class SampleComponent {
      * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
      */
     constructor(
-        private _fuseTranslationLoaderService: FuseTranslationLoaderService
+        private _fuseTranslationLoaderService: FuseTranslationLoaderService,
+        public el: ElementRef
     ) {
         this._fuseTranslationLoaderService.loadTranslations(english, turkish);
         window.onscroll =() => { this.myFunction() };
@@ -246,4 +247,22 @@ export class SampleComponent {
     //     onElementScroll($event) {
     //         console.log($event)
     //     }
+
+    onCountoEnd(value){
+        value = this.score.toFixed(2);
+    }
+
+    isScrollDown = false;
+    scrollTo(className: string):void {
+        if(!this.isScrollDown){
+            const elementList = document.querySelectorAll('.' + className);
+            const element = elementList[0] as HTMLElement;
+            element.scrollIntoView();
+        } else{
+            const elementList = document.querySelectorAll('.page-layout');
+            const element = elementList[0] as HTMLElement;
+            element.scrollIntoView();
+        }
+        this.isScrollDown = !this.isScrollDown;
+    }
 }

@@ -31,7 +31,7 @@ import { ChangePasswordComponent } from './main/change-password/change-password.
 import { VerifyOperationsComponent } from './main/verify-operations/verify-operations.component';
 import { VerifyService } from './services/verify.service';
 import { HttpModule } from '@angular/http';
-
+import { CountoModule }  from 'angular2-counto';
 
 const appRoutes: Routes = [
     {
@@ -80,6 +80,7 @@ const appRoutes: Routes = [
         TranslateModule.forRoot(),
         FormsModule,
         HttpModule,
+        CountoModule,
         // Material moment date module
         MatMomentDateModule,
 
