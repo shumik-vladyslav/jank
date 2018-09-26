@@ -8,8 +8,8 @@ export class VerifyService {
 
   constructor(private http: Http) {}
 
-  getUrl(url){
-    return this.http.get(url);
+  getUrl(url, obj){
+    return this.http.post(url, obj);
  }
  
 

@@ -10,7 +10,9 @@ export class VerifyOperationsComponent implements OnInit {
 
   // service;
 
-  constructor( private verifyService: VerifyService) { }
+  constructor( private verifyService: VerifyService) {
+    this.init();
+   }
 
   ngOnInit() {
     // this.service = this.verifyService  
@@ -20,19 +22,154 @@ export class VerifyOperationsComponent implements OnInit {
   }
 
   items = [
-    { viewValue: 'KeyRingId1-KeyId1-1.0', value: 'RingId1-KeyId1' },
-    { viewValue: 'KeyRingId1-KeyId2-1.0', value: 'RingId1-KeyId2' },
-    { viewValue: 'KeyRingId2-KeyId1-1.0', value: 'RingId2-KeyId1' },
-    { viewValue: 'KeyRingId2-KeyId2-1.0', value: 'RingId2-KeyId2' },
+    { viewValue: 'BigRing-BigKey-1.0', value: 'BigRing-BigKey-1.0' },
+    { viewValue: 'BigRing-BigKey-2.0', value: 'BigRing-BigKey-2.0' },
+    { viewValue: 'BigRing-BigKey-4.0', value: 'BigRing-BigKey-4.0' },
   ];
 
-  serviceURI = 'http://cwpilotone.us-east-2.elasticbeanstalk.com/'
+  types = [
+    "",
+    'DATE',
+    'DATE_TIME',
+    'PERSON_NAME',
+    'PHONE_NUMBER',
+    'IP_ADDRESS',
+    'PERSON_NAME_NICE',
+    'SSN',
+    'CCNUM',
+    'CURRENCY_AMOUNT',
+    'UPC',
+    'GPS',
+    'STREET_ADDRESS',
+    'STREET_ADDRESS_NICE',
+    'EMAIL_ID',
+    'MRN',
+  ];
+  encryptedData = {};
+  decryptData = {};
+  encryptRequestList = 
+  {"requestCounter":15,
+  
+   "encryptRequestList":
+  
+       []
+  
+  }  
 
+  decryptRequestList = 
+  {"requestCounter":15,
+  
+   "decryptRequestList":
+  
+       []
+  
+  } 
+
+  data = []
+changeValue(){
+  for(let item of this.encryptRequestList.encryptRequestList){
+    item.keyContext = this.dropdown;
+    item.sigId = this.SigId;
+  }
+  for(let item of this.decryptRequestList.decryptRequestList){
+    item.keyContext = this.dropdown;
+    item.sigId = this.SigId;
+  }
+}
+  init(){
+    for(let i = 1; i <= this.types.length; i ++){
+      this.encryptRequestList.encryptRequestList.push(
+        {"keyContext": this.dropdown,
+      "inputValue":"",
+      "type":this.types[i],
+      "sigId":this.SigId,
+      "correlationId":i});
+    }
+
+    for(let i = 1; i <= this.types.length; i ++){
+      this.decryptRequestList.decryptRequestList.push(
+        {"keyContext": this.dropdown,
+      "inputValue":"",
+      "type":this.types[i],
+      "sigId":this.SigId,
+      "correlationId":i});
+    }
+
+  
+  }
+
+  dropdown = "BigRing-BigKey-1.0";
+
+  SigId = '123'
+
+  serviceURI = 'http://cwpilotone.us-east-2.elasticbeanstalk.com/'
+  changInput(){
+ 
+
+    let arr = this.encryptRequestList.encryptRequestList.filter((valie) => {
+      return valie.inputValue
+    })
+    console.log(this.encryptRequestList.encryptRequestList)
+    // this.changeValue();
+    this.cwBulkEncrypt(arr, true);
+  }
   testFunc() {
-    console.log('shashki', this.serviceURI)
-    this.verifyService.getUrl(this.serviceURI).subscribe( items => {
-      console.log(items)
-      
+    this.changeValue();
+    this.cwBulkEncrypt(this.encryptRequestList.encryptRequestList);
+    // this.cwBuldDecrypt();
+  }
+  reload = true;
+  cwBulkEncrypt(arr, clear?){
+    // this.reload = false;
+    this.verifyService.getUrl(this.serviceURI + 
+    'cwBulkEncrypt',  
+    {"requestCounter":15,
+  
+    "encryptRequestList":
+   
+    arr
+   
+   } ).subscribe( items => {
+      for(let item of items.json().cwResponseList){
+        this.encryptedData[item.correlationId] = item.outputText;
+        for(let i = 0; i < this.decryptRequestList.decryptRequestList.length; i++){
+          console.log(this.decryptRequestList.decryptRequestList[i].correlationId,item.correlationId)
+          if(+this.decryptRequestList.decryptRequestList[i].correlationId === +item.correlationId){
+            this.decryptRequestList.decryptRequestList[i].inputValue = item.outputText
+          }
+        }
+      }
+      setTimeout(() => {
+        if(clear){
+          let arr = this.decryptRequestList.decryptRequestList.filter((valie) => {
+            return valie.inputValue
+          })
+          this.cwBuldDecrypt(arr);
+        } else {
+          this.cwBuldDecrypt(this.decryptRequestList.decryptRequestList);
+
+        }
+      }, 1000);
+
+
+
+    })
+  }
+
+  cwBuldDecrypt(arr){
+    console.log(this.decryptRequestList);
+    this.verifyService.getUrl(this.serviceURI + 
+    'cwBulkDecrypt',   {"requestCounter":15,
+  
+    "decryptRequestList":
+   
+       arr
+   
+   }).subscribe( items => {
+      console.log(items.json());
+      for(let item of items.json().cwResponseList){
+        this.decryptData[item.correlationId] = item.outputText;
+      }
     })
   }
 

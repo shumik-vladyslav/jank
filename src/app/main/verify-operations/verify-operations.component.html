@@ -22,7 +22,7 @@
         <div fxLayout="row" fxLayoutAlign="space-between start">
           <div fxLayout="column" class="width-50">
             <mat-form-field>
-              <mat-select placeholder="Key Context">
+              <mat-select placeholder="Key Context" [(ngModel)]="dropdown" (ngModelChange)="testFunc()">
                 <mat-option *ngFor="let item of items" [value]="item.value">
                   {{item.viewValue}}
                 </mat-option>
@@ -34,7 +34,7 @@
           </div>
           <div>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="SigId" value="">
+              <input matInput placeholder="SigId"  [(ngModel)]="SigId" (ngModelChange)="testFunc()">
             </mat-form-field>
           </div>
         </div>
@@ -53,24 +53,24 @@
           <div class="item-tabel">ENCRYPTED</div>
           <div class="item-tabel">UNENCRYPTED</div>
         </div>
-        <div class="table-row">
+        <div *ngFor="let item of encryptRequestList.encryptRequestList" class="table-row">
           <div class="item-tabel">
-            Date
+            {{item.type}}
           </div>
           <div class="item-tabel">
             <mat-form-field class="example-full-width full-width">
               <!-- <input matInput type="date" value="">
               <input matInput type="datetime-local" value=""> -->
-              <input matInput type="text" value="">
+              <input [(ngModel)]="item.inputValue" matInput type="text" (ngModelChange)="changInput()">
               <!-- <input matInput type="tel" value="">
               <input matInput type="email" value=""> -->
             </mat-form-field>
           </div>
-          <div class="item-tabel">
-            12/30/2077
+          <div *ngIf="reload" class="item-tabel">
+            {{encryptedData[item.correlationId]}}
           </div>
           <div class="item-tabel">
-            10/18/2018
+            {{decryptData[item.correlationId]}}
           </div>
         </div>
       </div>
