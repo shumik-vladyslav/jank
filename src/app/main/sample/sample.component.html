@@ -16,8 +16,8 @@
 
         <!-- CONTENT HEADER -->
         <div class="header accent p-24" fxLayout="row" fxLayoutAlign="center center">
-            <h2 class="m-0 fs-30">Calculate your Data Breach Risk
-            </h2>
+            <h2 class="m-0 fs-30">Calculate your Data Breach Risk Score
+            </h2><h2  (click)="scrollTo('coment')">*</h2>
         </div>
         <!-- / CONTENT HEADER -->
 
@@ -200,9 +200,9 @@
                             class="value-risk"
                             counto 
                             [step]="30" 
-                            [countTo]="10" 
-                            [countFrom]="0" 
-                            [duration]="4" 
+                            [countTo]="countTo" 
+                            [countFrom]="countFrom" 
+                            [duration]="2" 
                             (countoChange)="score = $event" 
                             (countoEnd)="onCountoEnd()"
                             >

@@ -136,6 +136,8 @@ export class SampleComponent {
     numerator;
     multiplier;
     score = 0;
+    countFrom = 0;
+    countTo = 0;
     calculateRisk(item) {
 
         this.yesCount1 = 0;
@@ -220,6 +222,8 @@ export class SampleComponent {
             this.score = Math.floor(Math.random() * (80 - 70) + 70);
         }
 
+        this.countTo = this.score;
+
         // console.log(
         //     this.yesCount1,
         //     this.noCount1,
@@ -250,6 +254,7 @@ export class SampleComponent {
 
     onCountoEnd(value){
         value = this.score.toFixed(2);
+        this.countFrom = value;
     }
 
     isScrollDown = false;
