@@ -90,7 +90,21 @@ export const navigation: FuseNavigation[] = [
                     bg       : '#F44336',
                     fg       : '#FFFFFF'
                 }
-            }
+            },
+            {
+                id       : 'Data Requst',
+                title    : 'Data Requst',
+                // translate: 'NAV.SAMPLE.TITLE',
+                type     : 'item',
+                icon     : 'equalizer',
+                url      : '/data-requst',
+                badge    : {
+                    title    : '25',
+                    // translate: 'NAV.SAMPLE.BADGE',
+                    bg       : '#F44336',
+                    fg       : '#FFFFFF'
+                }
+            },
         ]
     }
 ];

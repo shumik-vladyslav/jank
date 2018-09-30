@@ -24,3 +24,15 @@
 .width-95{
     width: 95%;
 }
+.custome-table > tbody > tr > td.mat-cell.ng-star-inserted, .custome-table > thead > tr > th.mat-header-cell.ng-star-inserted{
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100px;
+    padding: 0;
+}
+.custome-table > thead > tr > th.mat-header-cell.ng-star-inserted{
+    font-size: 16px;
+}
+.fw-600{
+    font-weight: 600;
+}

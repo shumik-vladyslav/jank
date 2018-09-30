@@ -32,6 +32,10 @@ import { VerifyOperationsComponent } from './main/verify-operations/verify-opera
 import { VerifyService } from './services/verify.service';
 import { HttpModule } from '@angular/http';
 import { CountoModule }  from 'angular2-counto';
+import { DataRequestComponent } from './main/data-request/data-request.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { RequestDetailsComponent } from './main/request-details/request-details.component';
 
 const appRoutes: Routes = [
     {
@@ -57,7 +61,17 @@ const appRoutes: Routes = [
     {
         path     : 'verify-operations',
         component: VerifyOperationsComponent
-    }
+    },
+    {
+        path     : 'forget-pass',
+        component: ForgotPasswordComponent
+    },
+    {
+        path     : 'data-requst',
+        component: DataRequestComponent
+    },
+    
+    
 ];
 
 @NgModule({
@@ -71,6 +85,9 @@ const appRoutes: Routes = [
         SingUpComponent,
         ChangePasswordComponent,
         VerifyOperationsComponent,
+        ForgotPasswordComponent,
+        DataRequestComponent,
+        RequestDetailsComponent,
     ],
     imports     : [
         BrowserModule,
@@ -97,6 +114,8 @@ const appRoutes: Routes = [
         MatSelectModule,
         MatSlideToggleModule,
         MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
         FuseProgressBarModule,

@@ -15,7 +15,7 @@
       <form name="loginForm" [formGroup]="loginForm" novalidate>
 
         <mat-form-field>
-          <input matInput placeholder="Email" formControlName="email">
+          <input [(ngModel)]="user" matInput placeholder="Email" formControlName="email">
           <mat-error *ngIf="loginForm.get('email').hasError('required')">
             Email is required
           </mat-error>
@@ -26,7 +26,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" formControlName="password">
+          <input [(ngModel)]="password" matInput type="password" placeholder="Password" formControlName="password">
           <mat-error>
             Password is required
           </mat-error>
@@ -47,7 +47,7 @@
         <div fxLayout="row" fxLayoutAlign="center center">
           <!-- [disabled]="loginForm.invalid" -->
           <!-- [routerLink]="'/pages/auth/register'" -->
-          <button [ngClass]="{'inactive-style': loginForm.invalid}" (click)="errorControl()" mat-raised-button color="accent" class="submit-button" aria-label="LOG IN">
+          <button [ngClass]="{'inactive-style': loginForm.invalid}" (click)="singIn()" mat-raised-button color="accent" class="submit-button" aria-label="LOG IN">
             LOGIN
           </button>
           <button (click)="clearFilds()" mat-raised-button color="accent" class="submit-button">
@@ -57,7 +57,10 @@
         
       </form>
 
-      <app-forgot-password></app-forgot-password>
+      <div class="forgot-pass" (click)="linkForgotPass()">
+        Forgot Password?
+      </div>
+      
       
     </div>
 

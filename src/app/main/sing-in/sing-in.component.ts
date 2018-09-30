@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 import { Router } from '@angular/router';
+import { VerifyService } from '../../services/verify.service';
 
 @Component({
     selector: 'app-sing-in',
@@ -21,13 +22,19 @@ export class SingInComponent implements OnInit {
      * @param {FuseConfigService} _fuseConfigService
      * @param {FormBuilder} _formBuilder
      */
-    
+
     showMessSucReg = false;
+
+    data = {
+        user: '',
+        password: '',
+    }
 
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
-        private router: Router
+        private router: Router,
+        private VerifyServise: VerifyService,
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -57,7 +64,11 @@ export class SingInComponent implements OnInit {
     /**
      * On init
      */
-    
+
+    linkForgotPass(){
+        this.router.navigateByUrl('/forget-pass');
+    }
+
     ngOnInit(): void {
 
         this.loginForm = this._formBuilder.group({
@@ -76,13 +87,21 @@ export class SingInComponent implements OnInit {
 
     errorMessege = false;
 
-    errorControl() {
-        if (this.loginForm.invalid) {
-            this.errorMessege = true;
-        };
+    singIn() {
         if (this.loginForm.valid) {
-            this.router.navigateByUrl('/register');
+            this.VerifyServise.singIn(this.data.user, this.data.password).subscribe((data: any) => {
+                console.log(data);
+                if (data.status === 200) {
+                    this.router.navigateByUrl('/verify-operations');
+                } else if (data.status === "ChangePassword") {
+                    this.router.navigateByUrl('/change-pass');
+                } else {
+                    this.errorMessege = true;
+                }
+
+            });
+        } else{
+            this.errorMessege = true;
         }
     }
-
 }

@@ -16,14 +16,14 @@
       <form name="registrationForm" [formGroup]="registrationForm" novalidate>
 
         <mat-form-field>
-          <input matInput type="text" placeholder="Company Name" formControlName="name">
+          <input [(ngModel)]="data.name" matInput type="text" placeholder="Company Name" formControlName="name">
           <mat-error>
             Password is required
           </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Email" formControlName="email">
+          <input  [(ngModel)]="data.email" matInput placeholder="Email" formControlName="email">
           <mat-error *ngIf="registrationForm.get('email').hasError('required')">
             Email is required
           </mat-error>
@@ -50,7 +50,7 @@
         <div fxLayout="row" fxLayoutAlign="center center">
           <!-- [disabled]="registrationForm.invalid" -->
           <!-- [routerLink]="'/pages/auth/register'" -->
-          <button [ngClass]="{'inactive-style': registrationForm.invalid}" (click)="errorControl()" mat-raised-button color="accent" class="submit-button">
+          <button [ngClass]="{'inactive-style': registrationForm.invalid}" (click)="signUp()" mat-raised-button color="accent" class="submit-button">
             Register
           </button>
           <button (click)="clearFilds()" mat-raised-button color="accent" class="submit-button">

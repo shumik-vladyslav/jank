@@ -1,0 +1,111 @@
+<div class="main-wrap">
+  <div class="head-title text-center fs-30 m-b-20">
+    Request Detail
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Request ID:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        User Id:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Create Date:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Status:
+      </div>
+      <div class="fs-18 fw-600">
+        <mat-form-field style="width: 180px;">
+          <mat-select>
+            <mat-option *ngFor="let i of data" [value]="i.value">
+              {{i.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Requester Name:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Fullfill Date:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Signed:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Sig Id:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+    <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+      <div class="fs-18">
+        Type:
+      </div>
+      <div class="fs-18 fw-600">
+        101
+      </div>
+    </div>
+  </div>
+
+  <div class="fs-18 m-t-20 m-b-20">
+    History:
+  </div>
+
+  <div class="text-box">
+    This users' report request was completed on 10/12.
+  </div>
+
+  <div class="fs-18 m-t-20 m-b-20">
+    New Comment:
+  </div>
+
+  <textarea class="text-area" placeholder="Enter a new Comment"></textarea>
+ 
+  <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center center" class="m-t-20">
+      <button mat-raised-button color="accent">Save</button>
+      <button mat-raised-button color="accent">Cancel</button>
+  </div>
+
+</div>
