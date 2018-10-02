@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { VerifyService } from '../../services/verify.service';
 
 @Component({
   selector: 'app-request-details',
@@ -7,15 +8,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private verifyService: VerifyService) { }
+
+  @Input() requestDetail;
+  @Output() cancelEvent = new EventEmitter();
+
+  clickCancel(){
+    this.cancelEvent.emit(null);
+    this.requestDetail = null;
+  }
+
+  clickSave(){
+    console.log("saveButton");
+    this.putObject.id = this.requestDetail.id;
+    this.putObject.status = this.requestDetail.status;
+    console.log(this.putObject);
+    this.verifyService.putData(this.putObject).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
+
+  putObject = {
+    id: '',
+    status: "",
+    newComment: ''
+  }
 
   data = [
-    {name: 'Unassigned', value: 1},
-    {name: 'Assigned', value: 1},
-    {name: 'Complete', value: 1},
+    {name: 'Deleted', value: 1},
+    {name: 'Unassigned', value: 2},
+    {name: 'In Progress', value: 3},
+    {name: 'Pending Customer Input', value: 4},
+    {name: 'Pending Business Input', value: 5},
+    {name: 'Pending Legal Input', value: 6},
+    {name: 'Complete', value: 7}
   ]
 
   ngOnInit() {
+    console.log(this.requestDetail);
   }
 
 }

@@ -6,6 +6,8 @@ import { Injectable } from "@angular/core";
 })
 export class VerifyService {
 
+  url = "http://cwpilotone.us-east-2.elasticbeanstalk.com";
+
   constructor(private http: Http) { }
 
   getUrl(url, obj) {
@@ -13,22 +15,26 @@ export class VerifyService {
   }
 
   singUp(name, email) {
-    return this.http.post('http://cwpilotone.us-east-2.elasticbeanstalk.com' + `/cwRegisterDataAgent?companyName=${name}&emailId=${email}`, [])
+    return this.http.post(this.url + `/cwRegisterDataAgent?companyName=${name}&emailId=${email}`, [])
   }
 
   singIn(user, pass) {
-    return this.http.post('http://cwpilotone.us-east-2.elasticbeanstalk.com' + `/cwAuthenticateUser?user=${user}&pass=${pass}`, [])
+    return this.http.post(this.url + `/cwAuthenticateUser?user=${user}&pass=${pass}`, [])
   }
 
   forgetPass(user) {
-    return this.http.post('http://cwpilotone.us-east-2.elasticbeanstalk.com' + `/cwResetPassword?emailId=${user}`, [])
+    return this.http.post(this.url + `/cwResetPassword?emailId=${user}`, [])
   }
   
   changePass(email, oldPass, newPass) {
-    return this.http.post('http://cwpilotone.us-east-2.elasticbeanstalk.com' + `/cwChangePassword?email=${email}&oldPass=${oldPass}&newPass=${newPass}`, [])
+    return this.http.post(this.url + `/cwChangePassword?email=${email}&oldPass=${oldPass}&newPass=${newPass}`, [])
   }
 
   DataOwnerRequestQueue(obj:any) {
-    return this.http.post('http://cwpilotone.us-east-2.elasticbeanstalk.com' + `/cwGetReportRequests?minId=${obj.minId}&recordCount=${obj.recordCount}&type=${obj.type}&sigId=${obj.sigId}&userId=${obj.userId}&requestDateBegin=${obj.requestDateBegin}&requestDateEnd=${obj.requestDateEnd}&fulfillDateBegin=${obj.fulfillDateBegin}&fulfillDateEnd=${obj.fulfillDateEnd}&status=${obj.status}`, [])
+    return this.http.post(this.url + `/cwGetDataOwnerRequestSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.type ? '&type=' + obj.type : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.userId ? '&userId=' + obj.userId : ''}${obj.requestDateBegin ? '&requestDateBegin=' + obj.requestDateBegin : ''}${obj.requestDateEnd ? '&requestDateEnd=' + obj.requestDateEnd : ''}${obj.fulfillDateBegin ? '&fulfillDateBegin=' + obj.fulfillDateBegin : ''}${obj.fulfillDateEnd ? '&fulfillDateEnd=' + obj.fulfillDateEnd : ''}${obj.status ? '&status=' + obj.status : ''}`, [])
+  }
+
+  putData(obj:any) {
+    return this.http.post(this.url + `cwPutDataOwnerRequest?id=${obj.id}&status=${obj.status}&newComment=${obj.newComment}`, [])
   }
 }

@@ -1,4 +1,4 @@
-<div class="main-wrap">
+<div *ngIf="requestDetail" class="main-wrap">
   <div class="head-title text-center fs-30 m-b-20">
     Request Detail
   </div>
@@ -8,7 +8,7 @@
         Request ID:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.id}}
       </div>
     </div>
     <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -16,7 +16,7 @@
         User Id:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.userId}}        
       </div>
     </div>
     <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -24,7 +24,7 @@
         Create Date:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.createTime}}        
       </div>
     </div>
   </div>
@@ -36,12 +36,13 @@
       </div>
       <div class="fs-18 fw-600">
         <mat-form-field style="width: 180px;">
-          <mat-select>
+          <mat-select [(ngModel)] = "requestDetail.status">
             <mat-option *ngFor="let i of data" [value]="i.value">
               {{i.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <!-- {{requestDetail.status}} -->
       </div>
     </div>
     <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -49,7 +50,7 @@
         Requester Name:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.requesterName}}
       </div>
     </div>
     <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -57,7 +58,7 @@
         Fullfill Date:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.fulfillTime}}        
       </div>
     </div>
   </div>
@@ -68,7 +69,7 @@
         Signed:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.electronicSignature}} 
       </div>
     </div>
     <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -76,7 +77,7 @@
         Sig Id:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.sigId}}        
       </div>
     </div>
     <div fxFlex="30%" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -84,7 +85,7 @@
         Type:
       </div>
       <div class="fs-18 fw-600">
-        101
+        {{requestDetail.type}}
       </div>
     </div>
   </div>
@@ -94,18 +95,19 @@
   </div>
 
   <div class="text-box">
-    This users' report request was completed on 10/12.
+    <!-- This users' report request was completed on 10/12. -->
+    {{requestDetail.comment}}
   </div>
 
   <div class="fs-18 m-t-20 m-b-20">
     New Comment:
   </div>
 
-  <textarea class="text-area" placeholder="Enter a new Comment"></textarea>
+  <textarea [(ngModel)] = "putObject.newComment" class="text-area" placeholder="Enter a new Comment"></textarea>
  
   <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center center" class="m-t-20">
-      <button mat-raised-button color="accent">Save</button>
-      <button mat-raised-button color="accent">Cancel</button>
+      <button mat-raised-button color="accent" (click) = "clickSave()">Save</button>
+      <button mat-raised-button color="accent" (click) = "clickCancel()">Cancel</button>
   </div>
 
 </div>

@@ -33,33 +33,59 @@ export class DataRequestComponent implements OnInit {
     {name: 'Type 3', value: 1},
   ]
 
-  displayedColumns: string[] = ['RequestID', 'UserId', 'RequesterName', 'Type', 'CreateDate', 'SensitiveGroupId', 'FullfillDate', 'LastUpdateDate', 'Status'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['id', 'userId', 'requesterName', 'type', 'createTime', 'electronicSignature', 'fulfillTime', 'updateTime', 'status'];
+  dataSource;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  data = [];
+
   dataRequest = {
-    minId: '',
-    recordCount: '',
+    minId: '1',
+    recordCount: '50',
     type: '',
     sigId: '',
     userId: '',
     requestDateBegin: '',
     requestDateEnd: '',
+    electronicSignature: '',
     fulfillDateBegin: '',
     fulfillDateEnd: '',
     status: '',
   }
 
+  requestDetail;
+  
+  someClick(row){
+    console.log(row);
+    this.requestDetail = row;
+  }
+
+  requestDetailsCancel(e){
+    this.requestDetail = e;
+  }
+
   method(){
     this.VerifyServise.DataOwnerRequestQueue(this.dataRequest).subscribe((data: any) => {
       console.log(data);
+      if(data._body) 
+      {
+        this.data = data.json();
+        this.dataSource = new MatTableDataSource<any>(this.data);
+        this.dataSource.paginator = this.paginator;
+
+        console.log(data.json());
+      }
     });
   }
 
   ngOnInit() {
   }
 
+  modelChanged(e){
+    console.log(this.dataRequest);
+    this.method();
+  }
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
