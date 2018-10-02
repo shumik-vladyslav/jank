@@ -65,6 +65,11 @@ export class DataRequestComponent implements OnInit {
     this.requestDetail = e;
   }
 
+  requestDetailsSave(e){
+    this.requestDetail = e;
+    this.method();
+  }
+
   method(){
     this.VerifyServise.DataOwnerRequestQueue(this.dataRequest).subscribe((data: any) => {
       console.log(data);

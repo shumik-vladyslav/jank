@@ -130,7 +130,7 @@
 
     <!-- CONTENT CARD -->
     <div class="content-card m-b-20">
-      <app-request-details (cancelEvent) = "requestDetailsCancel($event)" [requestDetail]="requestDetail"></app-request-details>
+      <app-request-details (cancelEvent) = "requestDetailsCancel($event)" (saveEvent) = "requestDetailsSave($event)" [requestDetail]="requestDetail"></app-request-details>
     </div>
     <!-- / CONTENT CARD -->
 

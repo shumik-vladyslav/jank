@@ -12,6 +12,8 @@ export class RequestDetailsComponent implements OnInit {
 
   @Input() requestDetail;
   @Output() cancelEvent = new EventEmitter();
+  @Output() saveEvent = new EventEmitter();
+
 
   clickCancel(){
     this.cancelEvent.emit(null);
@@ -19,13 +21,15 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   clickSave(){
-    console.log("saveButton");
     this.putObject.id = this.requestDetail.id;
     this.putObject.status = this.requestDetail.status;
     console.log(this.putObject);
     this.verifyService.putData(this.putObject).subscribe((data: any) => {
+      this.saveEvent.emit(null);
+      this.putObject.newComment = '';    
       console.log(data);
     });
+    
   }
 
 
