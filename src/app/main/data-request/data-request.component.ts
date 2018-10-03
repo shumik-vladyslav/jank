@@ -92,18 +92,3 @@ export class DataRequestComponent implements OnInit {
     this.method();
   }
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
-  {RequestID: 1, UserId: 1, RequesterName: '1.0079', Type: 'H', CreateDate: 1, SensitiveGroupId: 1, FullfillDate: 1, LastUpdateDate: 1, Status: '1'},
- 
-];
