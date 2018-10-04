@@ -52,5 +52,4 @@ export class RequestDetailsComponent implements OnInit {
   ngOnInit() {
     console.log(this.requestDetail);
   }
-
 }
