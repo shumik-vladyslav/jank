@@ -19,7 +19,7 @@ export class VerifyService {
   }
 
   singIn(user, pass) {
-    return this.http.post(this.url + `/cwAuthenticateUser?user=${user}&pass=${pass}`, [])
+    return this.http.post(this.url + `/cwLogin?emailId=${user}&password=${pass}`, [])
   }
 
   forgetPass(user) {
@@ -27,7 +27,7 @@ export class VerifyService {
   }
   
   changePass(email, oldPass, newPass) {
-    return this.http.post(this.url + `/cwChangePassword?email=${email}&oldPass=${oldPass}&newPass=${newPass}`, [])
+    return this.http.post(this.url + `/cwConfirmRegistration?emailId=${email}&oldPass=${oldPass}&newPass=${newPass}`, [])
   }
 
   DataOwnerRequestQueue(obj:any) {

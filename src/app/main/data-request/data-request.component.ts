@@ -59,7 +59,9 @@ export class DataRequestComponent implements OnInit {
   someClick(row){
     console.log(row);
     this.requestDetail = row;
-    document.getElementById("requestDetail").scrollIntoView();    
+    setTimeout(() => {
+      document.getElementById("requestDetail").scrollIntoView();    
+    }, 500);
 
   }
 

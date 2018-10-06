@@ -57,7 +57,7 @@ export class ChangePasswordComponent implements OnInit {
     ngOnInit(): void {
         this.changePassForm = this._formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            newPassword: ['', [Validators.required, Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}")]],
+            newPassword: ['', [Validators.required]],
             oldPassword: ['', [Validators.required]]
         });
     }
@@ -73,13 +73,17 @@ export class ChangePasswordComponent implements OnInit {
         if (this.changePassForm.invalid) {
             this.errorMessege = true;
         } else {
-            this.VerifyServise.changePass(this.data.email, this.data.newPassword, this.data.oldPassword).subscribe((data: any) => {
+            this.VerifyServise.changePass(this.data.email, this.data.oldPassword, this.data.newPassword)
+            .subscribe((data: any) => {
                 console.log(data);
                 if (data.status === 200) {
-                    this.router.navigateByUrl('/verify-operations');
+                    this.router.navigateByUrl('/login');
                 } else {
                     this.errorMessege = true;
                 }
+            }, () => {
+                console.log(2323)
+                this.errorMessege = true;
             });
             this.errorMessege = false;
         }

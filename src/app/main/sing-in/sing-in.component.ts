@@ -92,12 +92,16 @@ export class SingInComponent implements OnInit {
             this.VerifyServise.singIn(this.data.user, this.data.password).subscribe((data: any) => {
                 console.log(data);
                 if (data.status === 200) {
+                    localStorage.setItem('user', JSON.stringify(data));
                     this.router.navigateByUrl('/verify-operations');
                 } else if (data.status === "ChangePassword") {
                     this.router.navigateByUrl('/change-pass');
                 } else {
                     this.errorMessege = true;
                 }
+
+            },() => {
+                this.errorMessege = true;
 
             });
         } else{

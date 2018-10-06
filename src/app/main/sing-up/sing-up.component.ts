@@ -82,8 +82,14 @@ export class SingUpComponent implements OnInit, OnDestroy {
             this.VerifyServise.singUp(this.data.name, this.data.email).subscribe((data: any) => {
                 console.log(data);
                 if (data.status === 200){
-                    this.router.navigateByUrl('/login');
+                    this.router.navigateByUrl('/change-pass');
+                } else {
+            this.errorMessege = true;
+
                 }
+            }, () => {
+            this.errorMessege = true;
+
             });
         }
     }

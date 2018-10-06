@@ -44,7 +44,7 @@
               Forgot Password?
             </a>
           </div> -->
-        <div *ngIf="errorMessege && registrationForm.invalid" class="message-box error fs-12 m-t-15 m-b-10">
+        <div *ngIf="errorMessege || registrationForm.invalid" class="message-box error fs-12 m-t-15 m-b-10">
           Registration Failed, Please check your Company Name and Email.
         </div>
         <div fxLayout="row" fxLayoutAlign="center center">
