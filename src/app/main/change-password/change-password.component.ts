@@ -57,7 +57,7 @@ export class ChangePasswordComponent implements OnInit {
     ngOnInit(): void {
         this.changePassForm = this._formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            newPassword: ['', [Validators.required]],
+            newPassword: ['', [Validators.required,Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}")]],
             oldPassword: ['', [Validators.required]]
         });
     }
