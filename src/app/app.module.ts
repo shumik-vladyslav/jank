@@ -36,6 +36,7 @@ import { DataRequestComponent } from './main/data-request/data-request.component
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { RequestDetailsComponent } from './main/request-details/request-details.component';
+import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.component';
 
 const appRoutes: Routes = [
     {
@@ -70,6 +71,10 @@ const appRoutes: Routes = [
         path     : 'data-requst',
         component: DataRequestComponent
     },
+    {
+        path     : 'de-keys',
+        component: ManageDeKeysComponent
+    },
     
     
 ];
@@ -88,6 +93,7 @@ const appRoutes: Routes = [
         ForgotPasswordComponent,
         DataRequestComponent,
         RequestDetailsComponent,
+        ManageDeKeysComponent,
     ],
     imports     : [
         BrowserModule,

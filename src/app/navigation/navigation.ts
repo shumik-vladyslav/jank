@@ -27,13 +27,7 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/erase-equest',
-                badge    : {
-                    title    : '25',
-                    // translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
+                url      : '/erase-equest'
             },
             {
                 id       : 'Report Request',
@@ -41,13 +35,7 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/report-equest',
-                badge    : {
-                    title    : '25',
-                    // translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
+                url      : '/report-equest'
             },
             {
                 id       : 'Login',
@@ -55,13 +43,7 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/login',
-                badge    : {
-                    title    : '25',
-                    // translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
+                url      : '/login'
             },
             {
                 id       : 'Register',
@@ -69,13 +51,7 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/register',
-                badge    : {
-                    title    : '25',
-                    // translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
+                url      : '/register'
             },
             {
                 id       : 'Verify Operations',
@@ -83,13 +59,7 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/verify-operations',
-                badge    : {
-                    title    : '25',
-                    // translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
+                url      : '/verify-operations'
             },
             {
                 id       : 'Data Requst',
@@ -97,14 +67,17 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                url      : '/data-requst',
-                badge    : {
-                    title    : '25',
-                    // translate: 'NAV.SAMPLE.BADGE',
-                    bg       : '#F44336',
-                    fg       : '#FFFFFF'
-                }
+                url      : '/data-requst'
             },
+            {
+                id       : 'Manage De Keys',
+                title    : 'Manage De Keys',
+                // translate: 'NAV.SAMPLE.TITLE',
+                type     : 'item',
+                icon     : 'equalizer',
+                url      : '/de-keys'
+            },
+            
         ]
     }
 ];
