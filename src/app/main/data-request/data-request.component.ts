@@ -21,9 +21,7 @@ export interface PeriodicElement {
 })
 export class DataRequestComponent implements OnInit {
 
-  constructor(
-    private VerifyServise: VerifyService,
-  ) { 
+  constructor( private VerifyServise: VerifyService ) { 
     console.log(this.method())
   }
 
@@ -42,7 +40,7 @@ export class DataRequestComponent implements OnInit {
 
   dataRequest = {
     minId: '1',
-    recordCount: '50',
+    recordCount: '1000',
     type: '',
     sigId: '',
     userId: '',

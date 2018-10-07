@@ -8,6 +8,7 @@ import { SampleComponent } from './sample.component';
 import { MatSelectModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import CountoModule from 'angular2-counto';
+import {MatInputModule} from '@angular/material/input';
 
 const routes = [
     {
@@ -28,7 +29,9 @@ const routes = [
         FuseSharedModule,
         MatSelectModule,
         FormsModule,
-        CountoModule
+        CountoModule,
+        MatInputModule
+
     ],
     exports     : [
         SampleComponent,

@@ -37,7 +37,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { RequestDetailsComponent } from './main/request-details/request-details.component';
 import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.component';
-
 const appRoutes: Routes = [
     {
         path     : 'erase-equest',
