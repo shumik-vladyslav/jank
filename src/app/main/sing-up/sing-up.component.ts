@@ -74,7 +74,7 @@ export class SingUpComponent implements OnInit, OnDestroy {
     }
 
     errorMessege = false;
-
+    errorMess = ""
     signUp() {
         if (this.registrationForm.invalid) {
             this.errorMessege = true;
@@ -87,9 +87,10 @@ export class SingUpComponent implements OnInit, OnDestroy {
             this.errorMessege = true;
 
                 }
-            }, () => {
-            this.errorMessege = true;
-
+            }, (data) => {
+                this.errorMessege = true;
+                console.log(data)
+                this.errorMess = data.json()['message'];
             });
         }
     }
