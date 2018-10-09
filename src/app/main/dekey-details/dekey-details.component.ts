@@ -12,9 +12,12 @@ export class DekeyDetailsComponent implements OnInit {
   @Input() deKeyDetail;
 
   dataStatus = [
-    {name: "Active", value: 1},
-    {name: "Inactive", value: 2}]
-    
+    { name: "Active", value: 1 },
+    { name: "Inactive", value: 2 }
+  ]
+  showPKCS11(){
+    console.log('cerf')
+  }
   ngOnInit() {
     console.log("dekey Detail " + this.deKeyDetail);
   }

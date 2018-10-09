@@ -131,12 +131,12 @@
     </div>
     <!-- / CONTENT CARD -->
     
-    <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="end center" class="m-t-20">
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="end center" class="m-t-20 m-b-20">
       <button (click)="ClickCreateDeKey()" mat-raised-button color="accent">Create New DE Key</button>
     </div>
 
     <!-- CONTENT CARD -->
-    <div class="content-card m-b-20">
+    <div *ngIf="deKeyDetail === true" class="content-card m-b-20">
       <app-dekey-details [deKeyDetail]="deKeyDetail"></app-dekey-details>
     </div>
     <!-- / CONTENT CARD -->

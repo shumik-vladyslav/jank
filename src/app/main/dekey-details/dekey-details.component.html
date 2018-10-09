@@ -1,16 +1,125 @@
 <!-- <div *ngIf="deKeyDetail" class="main-wrap"> -->
-<div *ngIf="deKeyDetail" class="main-wrap">
-  <div>
-    <input type="text" [(ngModel)]="deKeyDetail.keyRingId"> Key Ring Id <Br>
-  
-    <input type="text" [(ngModel)]="deKeyDetail.keyId"> Key Id <Br>
-  
-    <input type="text" [(ngModel)]="deKeyDetail.version"> Version <Br>
-  
-    <input type="text" [(ngModel)]="deKeyDetail.status"> Status <Br>
-  
-    <input type="text" [(ngModel)]="deKeyDetail.expirationTime"> Expiration Date <Br>
-  
-    <input type="text" [(ngModel)]="deKeyDetail.description"> Description <Br>
+<div *ngIf="deKeyDetail" class="main-wrap p-24">
+  <h1 class="text-center m-t-0">DE Key Detail</h1>
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Key Ring Id" [(ngModel)]="deKeyDetail.keyRingId">
+    </mat-form-field>
   </div>
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Key Id" [(ngModel)]="deKeyDetail.keyId">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Version" [(ngModel)]="deKeyDetail.version">
+    </mat-form-field>
+  </div>
+  <h1>
+    Master Key Provider
+  </h1>
+  <div class="right-content">
+    <section class="example-section">
+      <mat-radio-group fxLayout="column" fxLayoutGap="20px" [(ngModel)]="labelPosition">
+
+        <mat-radio-button class="example-margin" value="1">CipherWorks Local KMS</mat-radio-button>
+
+        <mat-radio-button class="example-margin" value="2">PKCS11 Master Key Manager</mat-radio-button>
+
+        <div class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Config Path">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="UserPin">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Instance Label">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Crypt Vector">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-radio-button class="example-margin" value="3">AWS Key Manager</mat-radio-button>
+
+        <div class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="AWS Key ARN">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="AWS Access Key Id">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="AWS Secret  Access Key">
+            </mat-form-field>
+          </div>
+        </div>
+
+      </mat-radio-group>
+    </section>
+
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Status">
+        <mat-option *ngFor="let i of dataStatus" [value]="i.value">
+          {{i.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <mat-form-field class="example-full-width">
+      <input matInput [matDatepicker]="picker" placeholder="Expiration Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Description"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="button-row" fxLayout="row" fxLayoutAlign="space-around center">
+    
+    <button mat-raised-button color="accent">Save</button>
+    <button mat-raised-button color="warn">Delete</button>
+    <a mat-raised-button>Cancel</a>
+  </div>
+  <!-- <div>
+    <input type="text" [(ngModel)]="deKeyDetail.keyRingId"> Key Ring Id
+    <Br>
+
+    <input type="text" [(ngModel)]="deKeyDetail.keyId"> Key Id
+    <Br>
+
+    <input type="text" [(ngModel)]="deKeyDetail.version"> Version
+    <Br>
+
+    <input type="text" [(ngModel)]="deKeyDetail.status"> Status
+    <Br>
+
+    <input type="text" [(ngModel)]="deKeyDetail.expirationTime"> Expiration Date
+    <Br>
+
+    <input type="text" [(ngModel)]="deKeyDetail.description"> Description
+    <Br>
+  </div> -->
 </div>
