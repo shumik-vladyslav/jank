@@ -40,7 +40,7 @@ export class DataRequestComponent implements OnInit {
 
   dataRequest = {
     minId: '1',
-    recordCount: '1000',
+    recordCount: '50',
     type: '',
     sigId: '',
     userId: '',

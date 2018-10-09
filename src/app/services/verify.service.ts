@@ -34,8 +34,8 @@ export class VerifyService {
     return this.http.post(this.url + `/cwGetDataOwnerRequestSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.type ? '&type=' + obj.type : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.userId ? '&userId=' + obj.userId : ''}${obj.requestDateBegin ? '&requestDateBegin=' + obj.requestDateBegin : ''}${obj.requestDateEnd ? '&requestDateEnd=' + obj.requestDateEnd : ''}${obj.fulfillDateBegin ? '&fulfillDateBegin=' + obj.fulfillDateBegin : ''}${obj.fulfillDateEnd ? '&fulfillDateEnd=' + obj.fulfillDateEnd : ''}${obj.status ? '&status=' + obj.status : ''}`, [])
   }
   
-  RequestDeKey(obj:any) {
-    return this.http.post(this.url + `/cwGetDEKeySummary?${obj.beginIndex ? 'beginIndex=' + obj.beginIndex : ''}&${obj.count ? 'count=' + obj.count : ''}`,[])
+  GetDEKeySummary(obj:any) {
+    return this.http.post(this.url + `/cwGetDEKeySummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}  ${obj.keyId ? '&keyId=' + obj.keyId : ''}  ${obj.version ? '&version=' + obj.version : ''}  ${obj.status ? '&status=' + obj.status : ''}  ${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}  ${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}  ${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}  ${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}  ${obj.expiryDateBegin ? '&expiryDateBegin=' + obj.expiryDateBegin : ''}  ${obj.expiryDateEnd ? '&expiryDateEnd=' + obj.expiryDateEnd : ''}`, [])
   }
 
   putData(obj:any) {
