@@ -53,7 +53,14 @@ export class ManageDeKeysComponent implements OnInit {
   }
 
   ClickCreateDeKey(){
-    this.deKeyDetail = true;
+    this.deKeyDetail = {
+      keyRingId: '',
+      keyId: '',
+      version: '',
+      masterKeyProvider: '',
+      status: '',
+      description: ''
+    }
   }
 
   RequestDeKey(){

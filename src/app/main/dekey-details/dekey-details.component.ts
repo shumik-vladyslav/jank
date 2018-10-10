@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { VerifyService } from '../../services/verify.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-dekey-details',
@@ -7,16 +9,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DekeyDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private VerifyServise: VerifyService) { }
 
   @Input() deKeyDetail;
+  @Output() saveEvent = new EventEmitter();
 
   dataStatus = [
     {name: "Active", value: 1},
-    {name: "Inactive", value: 2}]
-    
+    {name: "Inactive", value: 2}
+  ]
+
+  ClickSaveDeKeyDetail(){
+    this.VerifyServise.PutDEKeyDetails(this.deKeyDetail).subscribe((data:any) => {
+      console.log("Click");
+      this.saveEvent.emit(null);
+      console.log(this.deKeyDetail);
+      console.log(data.json());
+    });
+  }
+
   ngOnInit() {
-    console.log("dekey Detail " + this.deKeyDetail);
+    
   }
 
 }

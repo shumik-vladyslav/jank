@@ -38,6 +38,10 @@ export class VerifyService {
     return this.http.post(this.url + `/cwGetDEKeySummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}  ${obj.keyId ? '&keyId=' + obj.keyId : ''}  ${obj.version ? '&version=' + obj.version : ''}  ${obj.status ? '&status=' + obj.status : ''}  ${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}  ${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}  ${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}  ${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}  ${obj.expiryDateBegin ? '&expiryDateBegin=' + obj.expiryDateBegin : ''}  ${obj.expiryDateEnd ? '&expiryDateEnd=' + obj.expiryDateEnd : ''}`, [])
   }
 
+  PutDEKeyDetails(obj:any) {
+    return this.http.post(this.url + `/cwPutDEKeyDetails?KeyRingId=${obj.keyRingId}&keyId=${obj.keyId}&keyVersion=${obj.version}&expirationTime=${obj.expirationTime}&status=${obj.status}&meKeyProvider=${obj.masterKeyProvider}&meKeyConnectionString=${obj.masterKeyConnectionString}&description=${obj.description}`,[])
+  }
+
   putData(obj:any) {
     return this.http.post(this.url + `/cwPutDataOwnerRequest?id=${obj.id}&status=${obj.status}&newComment=${obj.newComment}`, {})
   }
