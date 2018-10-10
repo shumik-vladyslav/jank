@@ -86,7 +86,7 @@ export class SingInComponent implements OnInit {
     }
 
     errorMessege = false;
-
+    errorMess = ""
     singIn() {
         if (this.loginForm.valid) {
             this.VerifyServise.singIn(this.data.user, this.data.password).subscribe((data: any) => {
@@ -100,9 +100,10 @@ export class SingInComponent implements OnInit {
                     this.errorMessege = true;
                 }
 
-            },() => {
+            },(data) => {
                 this.errorMessege = true;
-
+                console.log(data)
+                this.errorMess = data.json()['message'];
             });
         } else{
             this.errorMessege = true;

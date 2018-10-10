@@ -38,6 +38,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { RequestDetailsComponent } from './main/request-details/request-details.component';
 import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.component';
 import { DekeyDetailsComponent } from './main/dekey-details/dekey-details.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const appRoutes: Routes = [
     {
@@ -123,6 +124,7 @@ const appRoutes: Routes = [
         MatInputModule,
         MatTableModule,
         MatPaginatorModule,
+        MatDatepickerModule,
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
         FuseProgressBarModule,

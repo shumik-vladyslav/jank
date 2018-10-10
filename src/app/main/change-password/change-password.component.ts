@@ -63,7 +63,7 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     errorMessege = false;
-
+    errorMess = "";
     data = {
         email: '',
         oldPassword: '',
@@ -81,9 +81,9 @@ export class ChangePasswordComponent implements OnInit {
                 } else {
                     this.errorMessege = true;
                 }
-            }, () => {
-                console.log(2323)
-                this.errorMessege = true;
+            },(data) => {
+                console.log(data)
+                this.errorMess = data.json()['message'];
             });
             this.errorMessege = false;
         }

@@ -28,6 +28,10 @@ export class DekeyDetailsComponent implements OnInit {
     });
   }
 
+  showPKCS11(){
+    console.log('cerf')
+  }
+
   ngOnInit() {
     
   }

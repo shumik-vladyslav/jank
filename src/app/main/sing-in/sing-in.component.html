@@ -42,9 +42,12 @@
             Forgot Password?
           </a>
         </div> -->
-        <div *ngIf="errorMessege || loginForm.invalid" class="message-box error fs-12 m-t-15 m-b-10">
+        <div *ngIf="errorMessege && loginForm.invalid" class="message-box error fs-12 m-t-15 m-b-10">
             Login Failed, Please check your user name and password.
         </div>
+        <div *ngIf="errorMess" class="message-box error fs-12 m-t-15 m-b-10">
+          {{errorMess}}
+          </div>
         <div fxLayout="row" fxLayoutAlign="center center">
           <!-- [disabled]="loginForm.invalid" -->
           <!-- [routerLink]="'/pages/auth/register'" -->
