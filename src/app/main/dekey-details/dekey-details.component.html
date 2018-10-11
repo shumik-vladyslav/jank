@@ -1,5 +1,4 @@
-<!-- <div *ngIf="deKeyDetail" class="main-wrap"> -->
-<div *ngIf="deKeyDetail" class="main-wrap p-24">
+<div class="main-wrap p-24" id="requestDetailKeys">
   <h1 class="text-center m-t-0">DE Key Detail</h1>
   <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
     <mat-form-field class="example-full-width">
@@ -27,7 +26,7 @@
 
         <mat-radio-button class="example-margin" value="2">PKCS11 Master Key Manager</mat-radio-button>
 
-        <div class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
+        <div *ngIf="labelPosition=='2'" class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Config Path">
@@ -52,7 +51,7 @@
 
         <mat-radio-button class="example-margin" value="3">AWS Key Manager</mat-radio-button>
 
-        <div class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
+        <div *ngIf="labelPosition=='3'" class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
               <input matInput placeholder="AWS Key ARN">
@@ -77,7 +76,7 @@
 
   <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
     <mat-form-field class="example-full-width">
-      <mat-select placeholder="Status">
+      <mat-select placeholder="Status" [(ngModel)]="deKeyDetail.status">
         <mat-option *ngFor="let i of dataStatus" [value]="i.value">
           {{i.name}}
         </mat-option>
@@ -86,7 +85,7 @@
   </div>
   <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
     <mat-form-field class="example-full-width">
-      <input matInput [matDatepicker]="picker" placeholder="Expiration Date">
+  <input matInput [matDatepicker]="picker" placeholder="Expiration Date" [(ngModel)]="deKeyDetail.expirationTime">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -99,27 +98,8 @@
 
   <div class="button-row" fxLayout="row" fxLayoutAlign="space-around center">
     
-    <button mat-raised-button color="accent">Save</button>
-    <button mat-raised-button color="warn">Delete</button>
-    <a mat-raised-button>Cancel</a>
+    <button (click)="ClickSaveDeKeyDetail()" mat-raised-button color="accent">Save</button>
+    <button (click)="ClickDelete()" mat-raised-button color="warn">Delete</button>
+    <a (click)="clickCancel()" mat-raised-button>Cancel</a>
   </div>
-  <!-- <div>
-    <input type="text" [(ngModel)]="deKeyDetail.keyRingId"> Key Ring Id
-    <Br>
-
-    <input type="text" [(ngModel)]="deKeyDetail.keyId"> Key Id
-    <Br>
-
-    <input type="text" [(ngModel)]="deKeyDetail.version"> Version
-    <Br>
-
-    <input type="text" [(ngModel)]="deKeyDetail.status"> Status
-    <Br>
-
-    <input type="text" [(ngModel)]="deKeyDetail.expirationTime"> Expiration Date
-    <Br>
-
-    <input type="text" [(ngModel)]="deKeyDetail.description"> Description
-    <Br>
-  </div> -->
 </div>

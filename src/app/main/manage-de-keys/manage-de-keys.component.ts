@@ -14,11 +14,17 @@ export class ManageDeKeysComponent implements OnInit {
     console.log(this.RequestDeKey());
    }
 
-  dataTypeStatus = [
+  dataStatusMass = [
     {name: 'Created', value: 0},
     {name: 'Active', value: 1},
     {name: 'Expired', value: 2},
   ]
+
+  dataStatus = {
+    0: "Created",
+    1: "Active",
+    2: "Expired"
+  }
 
   dataSource;
   deKeyDetail;
@@ -28,7 +34,7 @@ export class ManageDeKeysComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'keyRingId', 'keyId', 'version', 'masterKeyProvider', 'status', 'description'];
 
-  dataRequest = {
+  dataRequestKeys = {
     minId : '1',
     recordCount : '500',
     keyRingId : '',
@@ -45,11 +51,19 @@ export class ManageDeKeysComponent implements OnInit {
 
   ClickRow(row){
     console.log(row);
-    this.deKeyDetail = row;
-    // setTimeout(() => {
-    //   document.getElementById("requestDetail").scrollIntoView();    
-    // }, 500);
+    this.deKeyDetail = null;
+    setTimeout(() => {
+      this.deKeyDetail = row;
+    },100)
+  }
 
+  requestDetailsCancel(e){
+    this.deKeyDetail = e;
+  }
+
+  requestDetailsSave(e){
+    this.deKeyDetail = e;
+    this.RequestDeKey();
   }
 
   ClickCreateDeKey(){
@@ -61,28 +75,34 @@ export class ManageDeKeysComponent implements OnInit {
       status: '',
       description: ''
     }
+
   }
 
+  firstRunTime = Date.now();
   RequestDeKey(){
-    this.VerifyServise.GetDEKeySummary(this.dataRequest).subscribe((data:any) => {     
-      console.log(data.json());
-      
+    if ((Date.now() - this.firstRunTime ) < 300)  return;
+
+     this.firstRunTime = Date.now();
+     this.GetData();
+  }
+
+  GetData(){
+    this.VerifyServise.GetDEKeySummary(this.dataRequestKeys).subscribe((data:any) => {     
       if(data._body) 
       {
         this.data = data.json().result;
         this.dataSource = new MatTableDataSource<any>(this.data);
         this.dataSource.paginator = this.paginator;
-
-        console.log(data.json().result);
+        console.log("123 " + data);
       }
     });
   }
 
   ngOnInit() {
+    this.GetData();
   }
 
   modelChanged(e){
-    console.log(this.dataRequest);
     this.RequestDeKey();
   }
 }

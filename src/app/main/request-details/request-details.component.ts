@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { VerifyService } from '../../services/verify.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { VerifyService } from '../../services/verify.service';
   templateUrl: './request-details.component.html',
   styleUrls: ['./request-details.component.scss']
 })
-export class RequestDetailsComponent implements OnInit {
+export class RequestDetailsComponent implements OnInit, AfterViewInit {
 
   constructor(private verifyService: VerifyService) { }
 
@@ -50,6 +50,10 @@ export class RequestDetailsComponent implements OnInit {
   ]
 
   ngOnInit() {
-    console.log(this.requestDetail);
   }
+
+  ngAfterViewInit(){
+    document.getElementById("requestDetail").scrollIntoView();
+  }
+
 }

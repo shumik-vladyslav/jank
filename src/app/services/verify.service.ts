@@ -35,11 +35,15 @@ export class VerifyService {
   }
   
   GetDEKeySummary(obj:any) {
-    return this.http.post(this.url + `/cwGetDEKeySummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}  ${obj.keyId ? '&keyId=' + obj.keyId : ''}  ${obj.version ? '&version=' + obj.version : ''}  ${obj.status ? '&status=' + obj.status : ''}  ${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}  ${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}  ${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}  ${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}  ${obj.expiryDateBegin ? '&expiryDateBegin=' + obj.expiryDateBegin : ''}  ${obj.expiryDateEnd ? '&expiryDateEnd=' + obj.expiryDateEnd : ''}`, [])
+    return this.http.post(this.url + `/cwGetDEKeySummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}  ${obj.keyId ? '&keyId=' + obj.keyId : ''}  ${obj.version ? '&version=' + obj.version : ''}  ${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}  ${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}  ${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}  ${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}  ${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}  ${obj.expiryDateBegin ? '&expiryDateBegin=' + obj.expiryDateBegin : ''}  ${obj.expiryDateEnd ? '&expiryDateEnd=' + obj.expiryDateEnd : ''}`, [])
   }
 
   PutDEKeyDetails(obj:any) {
-    return this.http.post(this.url + `/cwPutDEKeyDetails?KeyRingId=${obj.keyRingId}&keyId=${obj.keyId}&keyVersion=${obj.version}&expirationTime=${obj.expirationTime}&status=${obj.status}&meKeyProvider=${obj.masterKeyProvider}&meKeyConnectionString=${obj.masterKeyConnectionString}&description=${obj.description}`,[])
+    return this.http.post(this.url + `/cwPutDEKeyDetails?id=${obj.id}&keyRingId=${obj.keyRingId}&keyId=${obj.keyId}&version=${obj.version}&expirationDate=${obj.expirationTime}&status=${obj.status}&masterKeyProvider=${obj.masterKeyProvider}&masterKeyConnectionString=${obj.masterKeyConnectionString}&description=${obj.description}`,[])
+  }
+
+  DeleteDEKey(obj:any) {
+    return this.http.post(this.url + `/cwDeleteDEKey?id=${obj.id}&keyRingId=${obj.keyRingId}&keyId=${obj.keyId}&version=${obj.version}`,[])
   }
 
   putData(obj:any) {
