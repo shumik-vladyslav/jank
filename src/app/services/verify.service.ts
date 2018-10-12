@@ -46,6 +46,11 @@ export class VerifyService {
     return this.http.post(this.url + `/cwDeleteDEKey?id=${obj.id}&keyRingId=${obj.keyRingId}&keyId=${obj.keyId}&version=${obj.version}`,[])
   }
 
+  GetSensetiveDataSummary(obj:any){
+    //return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status ? '&status=' + obj.status : ''}&keyContext=${obj.keyContext}-${obj.keyId}-${obj.version}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
+    return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status ? '&status=' + obj.status : ''}${obj.keyContext ? '&keyContext=' + obj.keyContext + '-' + obj.keyId + '-' + obj.version : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
+  }
+
   putData(obj:any) {
     return this.http.post(this.url + `/cwPutDataOwnerRequest?id=${obj.id}&status=${obj.status}&newComment=${obj.newComment}`, {})
   }

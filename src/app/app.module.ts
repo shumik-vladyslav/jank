@@ -39,6 +39,7 @@ import { RequestDetailsComponent } from './main/request-details/request-details.
 import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.component';
 import { DekeyDetailsComponent } from './main/dekey-details/dekey-details.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { SensitiveDataInventoryComponent } from './main/sensitive-data-inventory/sensitive-data-inventory.component';
 
 const appRoutes: Routes = [
     {
@@ -77,7 +78,10 @@ const appRoutes: Routes = [
         path     : 'de-keys',
         component: ManageDeKeysComponent
     },
-    
+    {
+        path     : 'sensitive-data',
+        component: SensitiveDataInventoryComponent
+    },    
 ];
 
 @NgModule({
@@ -96,6 +100,7 @@ const appRoutes: Routes = [
         RequestDetailsComponent,
         ManageDeKeysComponent,
         DekeyDetailsComponent,
+        SensitiveDataInventoryComponent,
     ],
     imports     : [
         BrowserModule,

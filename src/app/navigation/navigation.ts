@@ -77,6 +77,14 @@ export const navigation: FuseNavigation[] = [
                 icon     : 'equalizer',
                 url      : '/de-keys'
             },
+            {
+                id       : 'Sensitive Data Inventory',
+                title    : 'Sensitive Data Inventory',
+                // translate: 'NAV.SAMPLE.TITLE',
+                type     : 'item',
+                icon     : 'equalizer',
+                url      : '/sensitive-data'
+            },
             
         ]
     }
