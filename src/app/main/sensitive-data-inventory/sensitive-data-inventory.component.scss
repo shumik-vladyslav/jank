@@ -4,3 +4,46 @@
     overflow: auto;
     height: 100%;
 }
+.custome-table-btn{
+    min-width: 50px;
+}
+.table-input{
+    width: 100px;
+}
+.btn-set-table{
+    padding: 5px;
+    padding-top: 0;
+}
+.fixed-input{
+    position: fixed;
+    width: 100%;
+    top: 5px;
+    flex: 1 1 calc(30% - 25px);
+    box-sizing: border-box;
+    max-width: calc(23% - 25px);
+    min-width: 249px;
+}
+.custome-input-zoom{
+    width: 100%;
+    zoom: .78;
+}
+
+@media screen and (max-width: 960px) {
+    .fixed-input{
+        position: relative;
+        width: 100%;
+        top: 5px;
+        flex: 1 1 calc(30% - 25px);
+        box-sizing: border-box;
+        max-width: 100%;
+        min-width: 249px;
+    }
+    .change-blok{
+        display: none;
+    }
+    .custome-input-zoom{
+        width: 100%;
+        max-width: 200px;
+        zoom: 1;
+    }
+}
