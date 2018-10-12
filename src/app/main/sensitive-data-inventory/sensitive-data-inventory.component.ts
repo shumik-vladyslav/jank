@@ -30,7 +30,7 @@ export class SensitiveDataInventoryComponent implements OnInit {
     // expirationDateEnd : ''
   }
 
-  displayedColumns: string[] = ['tweakId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment'];
+  displayedColumns: string[] = ['tweakId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment','empty'];
   
   dataStatusMass = [
     {name: 'Created', value: 0},

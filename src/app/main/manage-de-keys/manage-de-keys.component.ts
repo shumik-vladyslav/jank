@@ -103,6 +103,16 @@ export class ManageDeKeysComponent implements OnInit {
   }
 
   modelChanged(e){
+    console.log("qqqqqqqqqq" + e);
+    this.RequestDeKey();
+  }
+
+  modelChangedDate(e){
+    console.log(e);
+    if(typeof(e) != "string" && e != null){
+      e = e.format("YYYY-MM-DD");
+    }
+    console.log("qqqqqqqqqq" + e); 
     this.RequestDeKey();
   }
 }
