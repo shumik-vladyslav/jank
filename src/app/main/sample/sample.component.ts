@@ -252,7 +252,7 @@ export class SampleComponent {
     //         console.log($event)
     //     }
 
-    onCountoEnd(value){
+    onCountoEnd(value?){
         value = this.score.toFixed(2);
         this.countFrom = value;
     }

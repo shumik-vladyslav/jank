@@ -32,6 +32,7 @@ export class SensitiveDataInventoryComponent implements OnInit {
     expirationDateEnd : '',
     comment: ''
   }
+  
 
   displayedColumns: string[] = ['tweakId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment','empty'];
   

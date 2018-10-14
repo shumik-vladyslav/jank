@@ -121,12 +121,13 @@
                   <div class="text-center">
                       <div>
                         <mat-form-field class="example-full-width table-input">
-                          <input matInput [(ngModel)]="dataSensetive.comment" (ngModelChange)="modelChanged($event)">
+                          <input matInput [(ngModel)]="element['commentNew']">
                         </mat-form-field>
                       </div>
                       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="btn-set-table">
-                        <button (click)="ClickAddNote()" class="custome-table-btn" mat-raised-button color="accent">1</button>
-                        <button class="custome-table-btn" mat-raised-button color="accent">2</button>
+                        <button [disabled]="!element['commentNew']" (click)="ClickAddNote()" class="custome-table-btn" mat-raised-button color="accent">1</button>
+                        <button [disabled]="!element['commentNew'] || (!element.status && element.status !== 0 ) || !element.comment
+                        || !element.expirationTime" class="custome-table-btn" mat-raised-button color="accent">2</button>
                       </div>
                     </div>
               </td>

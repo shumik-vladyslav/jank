@@ -15,7 +15,6 @@ import { fuseConfig } from 'app/fuse-config';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
-import { SampleModule } from 'app/main/sample/sample.module';
 import { EraseRequestComponent } from './main/erase-request/erase-request.component';
 import { SuccessMessageComponent } from 'app/main/success-message/success-message.component';
 
@@ -40,8 +39,13 @@ import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.comp
 import { DekeyDetailsComponent } from './main/dekey-details/dekey-details.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { SensitiveDataInventoryComponent } from './main/sensitive-data-inventory/sensitive-data-inventory.component';
+import { SampleComponent } from './main/sample/sample.component';
 
 const appRoutes: Routes = [
+    {
+        path     : 'sample',
+        component: SampleComponent
+    },
     {
         path     : 'erase-equest',
         component: EraseRequestComponent
@@ -87,6 +91,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent, 
+        SampleComponent,
         EraseRequestComponent,
         SuccessMessageComponent,
         ReportRequestComponent,
@@ -139,7 +144,6 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
-        SampleModule,
     ],
     bootstrap   : [
         AppComponent
