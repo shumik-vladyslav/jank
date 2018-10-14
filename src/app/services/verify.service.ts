@@ -55,7 +55,7 @@ export class VerifyService {
   }
 
   FogetSigId(obj:any){
-    return this.http.post(this.url + `cwForgetSigId?sigId=${obj.sigId}&comment=${obj.comment}`, [])
+    return this.http.post(this.url + `/cwForgetSigId?sigId=${obj.sigId}&comment=${obj.comment}`, [])
   }
   
   putData(obj:any) {

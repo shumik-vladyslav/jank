@@ -33,6 +33,10 @@ export class SensitiveDataInventoryComponent implements OnInit {
     comment: ''
   }
   
+  sensetiveNote = {
+    comment : '',
+    sigId : '' 
+  }
 
   displayedColumns: string[] = ['tweakId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment','empty'];
   
@@ -52,10 +56,26 @@ export class SensitiveDataInventoryComponent implements OnInit {
   dataSource;
   data = [];
 
-  ClickAddNote(){
-    this.VerifyService.AddCommentToSigId(this.dataSensetive).subscribe((data:any)=> {
+  ClickAddNote(comment, sigId){
+    this.sensetiveNote.comment = comment;
+    this.sensetiveNote.sigId = sigId;
+    this.VerifyService.AddCommentToSigId(this.sensetiveNote).subscribe((data:any)=> {
       console.log(data);
-    })
+    });
+    setTimeout(()=>{
+      this.GetDataSensetive();
+    },500);
+  }
+
+  ClickEraseNote(comment, sigId){
+    this.sensetiveNote.comment = comment;
+    this.sensetiveNote.sigId = sigId;
+    this.VerifyService.FogetSigId(this.sensetiveNote).subscribe((data:any) => {
+      console.log(data);
+    });
+    setTimeout(()=>{
+      this.GetDataSensetive();
+    },500);
   }
 
   firstRunTime = Date.now();
