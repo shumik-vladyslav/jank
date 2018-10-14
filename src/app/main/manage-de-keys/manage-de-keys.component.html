@@ -43,12 +43,12 @@
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="pickerCreateDateBegin" placeholder="From" [(ngModel)]="dataRequestKeys.createDateBegin" (ngModelChange)="modelChangedDate($event)">
+              <input matInput [matDatepicker]="pickerCreateDateBegin" placeholder="From" [(ngModel)]="dataRequestKeys.createDateBegin" (ngModelChange)="modelChangedDate($event, 'createDateBegin')">
                 <mat-datepicker-toggle matSuffix [for]="pickerCreateDateBegin"></mat-datepicker-toggle>
                 <mat-datepicker #pickerCreateDateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="pickerCreateDateEnd" placeholder="To" [(ngModel)]="dataRequestKeys.createDateEnd" (ngModelChange)="modelChangedDate($event)">
+              <input matInput [matDatepicker]="pickerCreateDateEnd" placeholder="To" [(ngModel)]="dataRequestKeys.createDateEnd" (ngModelChange)="modelChangedDate($event, 'createDateEnd')">
                 <mat-datepicker-toggle matSuffix [for]="pickerCreateDateEnd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerCreateDateEnd></mat-datepicker>
             </mat-form-field>
@@ -60,12 +60,12 @@
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="pickerLastUpdateBegin" placeholder="From" [(ngModel)]="dataRequestKeys.updateDateBegin" (ngModelChange)="modelChangedDate($event)">
+              <input matInput [matDatepicker]="pickerLastUpdateBegin" placeholder="From" [(ngModel)]="dataRequestKeys.updateDateBegin" (ngModelChange)="modelChangedDate($event, 'updateDateBegin')">
                 <mat-datepicker-toggle matSuffix [for]="pickerLastUpdateBegin"></mat-datepicker-toggle>
                 <mat-datepicker #pickerLastUpdateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="pickerLastUpdateEnd" placeholder="To" [(ngModel)]="dataRequestKeys.updateDateEnd" (ngModelChange)="modelChangedDate($event)">
+              <input matInput [matDatepicker]="pickerLastUpdateEnd" placeholder="To" [(ngModel)]="dataRequestKeys.updateDateEnd" (ngModelChange)="modelChangedDate($event, 'updateDateEnd')">
                 <mat-datepicker-toggle matSuffix [for]="pickerLastUpdateEnd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerLastUpdateEnd></mat-datepicker>
             </mat-form-field>
@@ -77,12 +77,12 @@
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="pickerEraseDateBegin" placeholder="From" [(ngModel)]="dataRequestKeys.expiryDateBegin" (ngModelChange)="modelChangedDate($event)">
+              <input matInput [matDatepicker]="pickerEraseDateBegin" placeholder="From" [(ngModel)]="dataRequestKeys.expiryDateBegin" (ngModelChange)="modelChangedDate($event, 'expiryDateBegin')">
                 <mat-datepicker-toggle matSuffix [for]="pickerEraseDateBegin"></mat-datepicker-toggle>
                 <mat-datepicker #pickerEraseDateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="pickerEraseDateEnd" placeholder="To" [(ngModel)]="dataRequestKeys.expiryDateEnd" (ngModelChange)="modelChangedDate($event)">
+              <input matInput [matDatepicker]="pickerEraseDateEnd" placeholder="To" [(ngModel)]="dataRequestKeys.expiryDateEnd" (ngModelChange)="modelChangedDate($event, 'expiryDateEnd')">
                 <mat-datepicker-toggle matSuffix [for]="pickerEraseDateEnd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerEraseDateEnd></mat-datepicker>
             </mat-form-field>

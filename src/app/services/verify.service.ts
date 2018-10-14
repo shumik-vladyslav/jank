@@ -35,11 +35,11 @@ export class VerifyService {
   }
   
   GetDEKeySummary(obj:any) {
-    return this.http.post(this.url + `/cwGetDEKeySummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}  ${obj.keyId ? '&keyId=' + obj.keyId : ''}  ${obj.version ? '&version=' + obj.version : ''}  ${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}  ${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}  ${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}  ${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}  ${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}  ${obj.expiryDateBegin ? '&expiryDateBegin=' + obj.expiryDateBegin : ''}  ${obj.expiryDateEnd ? '&expiryDateEnd=' + obj.expiryDateEnd : ''}`, [])
+    return this.http.post(this.url + `/cwGetDEKeySummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}${obj.keyId ? '&keyId=' + obj.keyId : ''}${obj.version ? '&version=' + obj.version : ''}${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expiryDateBegin ? '&expiryDateBegin=' + obj.expiryDateBegin : ''}${obj.expiryDateEnd ? '&expiryDateEnd=' + obj.expiryDateEnd : ''}`, [])
   }
 
   PutDEKeyDetails(obj:any) {
-    return this.http.post(this.url + `/cwPutDEKeyDetails?id=${obj.id}&keyRingId=${obj.keyRingId}&keyId=${obj.keyId}&version=${obj.version}&expirationDate=${obj.expirationTime}&status=${obj.status}&masterKeyProvider=${obj.masterKeyProvider}&masterKeyConnectionString=${obj.masterKeyConnectionString}&description=${obj.description}`,[])
+    return this.http.post(this.url + encodeURI(`/cwPutDEKeyDetails?${obj.id ? 'id=' + obj.id : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}${obj.keyId ? '&keyId=' + obj.keyId : ''}${obj.version ? '&version=' + obj.version : ''}${obj.expirationTime ? '&expirationDate=' + obj.expirationTime : ''}${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}${obj.masterKeyProvider ? '&masterKeyProvider=' + obj.masterKeyProvider : ''}${obj.masterKeyConnectionString ? '&masterKeyConnectionString=' + obj.masterKeyConnectionString : ''}${obj.description ? '&description=' + obj.description : ''}`),[])
   }
 
   DeleteDEKey(obj:any) {
@@ -47,13 +47,17 @@ export class VerifyService {
   }
 
   GetSensetiveDataSummary(obj:any){
-    //return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status ? '&status=' + obj.status : ''}&keyContext=${obj.keyContext}-${obj.keyId}-${obj.version}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
-    return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status ? '&status=' + obj.status : ''}${obj.keyContext ? '&keyContext=' + obj.keyContext + '-' + obj.keyId + '-' + obj.version : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
+    return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}${obj.keyContext || obj.keyRingId || obj.keyId || obj.version ? '&keyContext=' + obj.keyRingId + '-' + obj.keyId + '-' + obj.version : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
   }
 
   AddCommentToSigId(obj:any){
     return this.http.post(this.url + `/cwAddCommentToSigId?sigId=${obj.sigId}&comment=${obj.comment}`,[])
   }
+
+  FogetSigId(obj:any){
+    return this.http.post(this.url + `cwForgetSigId?sigId=${obj.sigId}&comment=${obj.comment}`, [])
+  }
+  
   putData(obj:any) {
     return this.http.post(this.url + `/cwPutDataOwnerRequest?id=${obj.id}&status=${obj.status}&newComment=${obj.newComment}`, {})
   }

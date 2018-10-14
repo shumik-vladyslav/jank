@@ -15,6 +15,7 @@ export class ManageDeKeysComponent implements OnInit {
    }
 
   dataStatusMass = [
+    {name: 'Any', value: ''},
     {name: 'Created', value: 0},
     {name: 'Active', value: 1},
     {name: 'Expired', value: 2},
@@ -54,6 +55,7 @@ export class ManageDeKeysComponent implements OnInit {
     this.deKeyDetail = null;
     setTimeout(() => {
       this.deKeyDetail = row;
+      this.ParseMasterKeyString();
     },100)
   }
 
@@ -62,20 +64,48 @@ export class ManageDeKeysComponent implements OnInit {
   }
 
   requestDetailsSave(e){
+    console.log("requstDetailsSave" + e)
     this.deKeyDetail = e;
     this.RequestDeKey();
   }
 
   ClickCreateDeKey(){
     this.deKeyDetail = {
+      id: '0',
       keyRingId: '',
       keyId: '',
       version: '',
       masterKeyProvider: '',
+      masterKeyConnectionString: '',
+      expirationTime: '',
       status: '',
-      description: ''
+      description: '',
+      pkcs11ConfigPath: '',
+      pkcs11UserPin: '',
+      pkcs11InstanceLabel: '',
+      pkcs11CryptVector: '',
+      awsKeyArn: '',
+      awsAccessKeyId: '',
+      awsSecretAccessKey: ''
     }
 
+  }
+
+  ParseMasterKeyString(){
+    if(this.deKeyDetail.masterKeyConnectionString && this.deKeyDetail.masterKeyProvider == "PKCS11"){
+      var res = this.deKeyDetail.masterKeyConnectionString.split("||");
+      this.deKeyDetail.pkcs11ConfigPath = res[0];
+      this.deKeyDetail.pkcs11UserPin = res[1];
+      this.deKeyDetail.pkcs11InstanceLabel = res[2];
+      this.deKeyDetail.pkcs11CryptVector = res[3];
+    } else {
+      if(this.deKeyDetail.masterKeyConnectionString && this.deKeyDetail.masterKeyProvider == "AWS"){
+        var res = this.deKeyDetail.masterKeyConnectionString.split("||");
+        this.deKeyDetail.awsKeyArn = res[0];
+        this.deKeyDetail.awsAccessKeyId = res[1];
+        this.deKeyDetail.awsSecretAccessKey = res[2];
+      }
+    }
   }
 
   firstRunTime = Date.now();
@@ -87,7 +117,8 @@ export class ManageDeKeysComponent implements OnInit {
   }
 
   GetData(){
-    this.VerifyServise.GetDEKeySummary(this.dataRequestKeys).subscribe((data:any) => {     
+    this.VerifyServise.GetDEKeySummary(this.dataRequestKeys).subscribe((data:any) => {  
+      console.log(data);   
       if(data._body) 
       {
         this.data = data.json().result;
@@ -103,16 +134,14 @@ export class ManageDeKeysComponent implements OnInit {
   }
 
   modelChanged(e){
-    console.log("qqqqqqqqqq" + e);
     this.RequestDeKey();
   }
 
-  modelChangedDate(e){
+  modelChangedDate(e, key){
     console.log(e);
     if(typeof(e) != "string" && e != null){
-      e = e.format("YYYY-MM-DD");
+      this.dataRequestKeys[key] = e.format("YYYY-MM-DD");
     }
-    console.log("qqqqqqqqqq" + e); 
     this.RequestDeKey();
   }
 }

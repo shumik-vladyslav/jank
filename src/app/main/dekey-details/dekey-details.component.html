@@ -29,22 +29,22 @@
         <div *ngIf="labelPosition=='2'" class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Config Path">
+              <input matInput placeholder="Config Path" [(ngModel)]="deKeyDetail.pkcs11ConfigPath">
             </mat-form-field>
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="UserPin">
+              <input matInput placeholder="UserPin" [(ngModel)]="deKeyDetail.pkcs11UserPin">
             </mat-form-field>
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Instance Label">
+              <input matInput placeholder="Instance Label" [(ngModel)]="deKeyDetail.pkcs11InstanceLabel">
             </mat-form-field>
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Crypt Vector">
+              <input matInput placeholder="Crypt Vector" [(ngModel)]="deKeyDetail.pkcs11CryptVector">
             </mat-form-field>
           </div>
         </div>
@@ -54,17 +54,17 @@
         <div *ngIf="labelPosition=='3'" class="fuse-card p-t-10 auto-width mb-32 mb-0 mr-32">
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="AWS Key ARN">
+              <input matInput placeholder="AWS Key ARN" [(ngModel)]="deKeyDetail.awsKeyArn">
             </mat-form-field>
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="AWS Access Key Id">
+              <input matInput placeholder="AWS Access Key Id" [(ngModel)]="deKeyDetail.awsAccessKeyId">
             </mat-form-field>
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="AWS Secret  Access Key">
+              <input matInput placeholder="AWS Secret  Access Key" [(ngModel)]="deKeyDetail.awsSecretAccessKey">
             </mat-form-field>
           </div>
         </div>
@@ -92,7 +92,7 @@
   </div>
   <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Description"></textarea>
+      <textarea matInput placeholder="Description" [(ngModel)]="deKeyDetail.description"></textarea>
     </mat-form-field>
   </div>
 

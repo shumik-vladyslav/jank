@@ -9,30 +9,34 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 })
 export class SensitiveDataInventoryComponent implements OnInit {
 
-  constructor(private VerifyService: VerifyService) { }
+  constructor(private VerifyService: VerifyService) { 
+    console.log(this.GetDataSensetive());
+  }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   dataSensetive = {
     minId : '1',
     recordCount : '100000',
-    // sigId : '',
-    // status : '',
-    // keyRingId : '',
-    // keyId : '',
-    // version : '',
-    // keyContext : '',
-    // createDateBegin : '',
-    // createDateEnd : '',
-    // updateDateBegin : '',
-    // updateDateEnd : '',
-    // expirationDateBegin : '',
-    // expirationDateEnd : ''
+    sigId : '',
+    status : '',
+    keyRingId : '',
+    keyId : '',
+    version : '',
+    keyContext : '',
+    createDateBegin : '',
+    createDateEnd : '',
+    updateDateBegin : '',
+    updateDateEnd : '',
+    expirationDateBegin : '',
+    expirationDateEnd : '',
+    comment: ''
   }
 
   displayedColumns: string[] = ['tweakId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment','empty'];
   
   dataStatusMass = [
+    {name: 'Any', value: ''},
     {name: 'Created', value: 0},
     {name: 'Active', value: 1},
     {name: 'Expired', value: 2},
@@ -47,9 +51,24 @@ export class SensitiveDataInventoryComponent implements OnInit {
   dataSource;
   data = [];
 
-  GetDataSensetive(){
-    this.VerifyService.GetSensetiveDataSummary(this.dataSensetive).subscribe((data:any)=> {
+  ClickAddNote(){
+    this.VerifyService.AddCommentToSigId(this.dataSensetive).subscribe((data:any)=> {
       console.log(data);
+    })
+  }
+
+  firstRunTime = Date.now();
+  GetDataSensetive(){
+    if ((Date.now() - this.firstRunTime ) < 300)  return;
+
+     this.firstRunTime = Date.now();
+     this.GetData();
+  }
+
+
+  GetData(){
+    this.VerifyService.GetSensetiveDataSummary(this.dataSensetive).subscribe((data:any)=> {
+      console.log(this.dataSensetive);
       if(data._body){
         this.data = data.json();
         this.dataSource = new MatTableDataSource(this.data);
@@ -59,8 +78,20 @@ export class SensitiveDataInventoryComponent implements OnInit {
     })
   }
   
-  ngOnInit() {
+  modelChanged(e){
     this.GetDataSensetive();
+  }
+
+  modelChangedDate(e, key){
+    console.log(e);
+    if(typeof(e) != "string" && e != null){
+      this.dataSensetive[key] = e.format("YYYY-MM-DD");
+    }
+    this.GetDataSensetive();
+  }
+
+  ngOnInit() {
+    this.GetData();
   }
 
 }
