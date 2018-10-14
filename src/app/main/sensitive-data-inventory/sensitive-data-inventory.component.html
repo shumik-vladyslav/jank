@@ -126,7 +126,7 @@
                       </div>
                       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="btn-set-table">
                         <button (click)="ClickAddNote(element['commentNew'], element.sigId)" [disabled]="!element['commentNew']" class="custome-table-btn" mat-raised-button color="accent">Add Note</button>
-                        <button (click)="ClickEraseNote(element['commentNew'], element.sigId)" [disabled]="!element.comment || element.status == 0 " class="custome-table-btn" mat-raised-button color="accent">Erase</button>
+                        <button (click)="ClickEraseNote(element.comment, element.sigId)" [disabled]="!element.comment || element.status == 0 " class="custome-table-btn" mat-raised-button color="accent">Erase</button>
                       </div>
                     </div>
               </td>

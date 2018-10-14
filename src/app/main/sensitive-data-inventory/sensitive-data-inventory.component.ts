@@ -70,6 +70,7 @@ export class SensitiveDataInventoryComponent implements OnInit {
   ClickEraseNote(comment, sigId){
     this.sensetiveNote.comment = comment;
     this.sensetiveNote.sigId = sigId;
+    console.log(this.sensetiveNote);
     this.VerifyService.FogetSigId(this.sensetiveNote).subscribe((data:any) => {
       console.log(data);
     });
