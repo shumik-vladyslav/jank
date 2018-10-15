@@ -38,7 +38,7 @@ export class SensitiveDataInventoryComponent implements OnInit {
     sigId : '' 
   }
 
-  displayedColumns: string[] = ['tweakId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment','empty'];
+  displayedColumns: string[] = ['sigId', 'keyContext', 'createTime', 'updateTime', 'expirationTime', 'status', 'comment','empty'];
   
   dataStatusMass = [
     {name: 'Any', value: ''},
@@ -90,9 +90,15 @@ export class SensitiveDataInventoryComponent implements OnInit {
 
   GetData(){
     this.VerifyService.GetSensetiveDataSummary(this.dataSensetive).subscribe((data:any)=> {
-      console.log(this.dataSensetive);
+      console.log(data);
       if(data._body){
         this.data = data.json();
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.data);
+      }
+      else{
+        this.data = [];
         this.dataSource = new MatTableDataSource(this.data);
         this.dataSource.paginator = this.paginator;
         console.log(this.data);
@@ -102,6 +108,13 @@ export class SensitiveDataInventoryComponent implements OnInit {
   
   modelChanged(e){
     this.GetDataSensetive();
+  }
+
+  pressBackspace(e, key){
+    if(e.key == "Backspace"){
+      this.dataSensetive[key] = '';
+      this.GetDataSensetive();
+    }
   }
 
   modelChangedDate(e, key){

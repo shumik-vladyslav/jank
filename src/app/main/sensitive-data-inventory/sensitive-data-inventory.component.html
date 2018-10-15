@@ -41,32 +41,32 @@
               </mat-select>
             </mat-form-field>
             <mat-form-field class="example-full-width custome-input-zoom">
-              <input matInput [matDatepicker]="pickerCreateDateBegin" placeholder="Create Date Begin:" [(ngModel)]="dataSensetive.createDateBegin" (ngModelChange)="modelChangedDate($event, 'createDateBegin')">
+              <input matInput [matDatepicker]="pickerCreateDateBegin" placeholder="Create Date Begin:" [(ngModel)]="dataSensetive.createDateBegin" (keydown)="pressBackspace($event, 'createDateBegin')" (ngModelChange)="modelChangedDate($event, 'createDateBegin')">
                 <mat-datepicker-toggle matSuffix [for]="pickerCreateDateBegin"></mat-datepicker-toggle>
                 <mat-datepicker #pickerCreateDateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width custome-input-zoom">
-              <input matInput [matDatepicker]="pickerCreateDateEnd" placeholder="Create Date End:" [(ngModel)]="dataSensetive.createDateEnd" (ngModelChange)="modelChangedDate($event, 'createDateEnd')">
+              <input matInput [matDatepicker]="pickerCreateDateEnd" placeholder="Create Date End:" [(ngModel)]="dataSensetive.createDateEnd" (keydown)="pressBackspace($event, 'createDateEnd')" (ngModelChange)="modelChangedDate($event, 'createDateEnd')">
                 <mat-datepicker-toggle matSuffix [for]="pickerCreateDateEnd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerCreateDateEnd></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width custome-input-zoom">
-              <input matInput [matDatepicker]="pickerLastUpdateBegin" placeholder="Last Update Date Begin:" [(ngModel)]="dataSensetive.updateDateBegin" (ngModelChange)="modelChangedDate($event, 'updateDateBegin')">
+              <input matInput [matDatepicker]="pickerLastUpdateBegin" placeholder="Last Update Date Begin:" [(ngModel)]="dataSensetive.updateDateBegin" (keydown)="pressBackspace($event, 'updateDateBegin')" (ngModelChange)="modelChangedDate($event, 'updateDateBegin')">
                 <mat-datepicker-toggle matSuffix [for]="pickerLastUpdateBegin"></mat-datepicker-toggle>
                 <mat-datepicker #pickerLastUpdateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width custome-input-zoom">
-              <input matInput [matDatepicker]="pickerLastUpdateEnd" placeholder="Last Update Date End:" [(ngModel)]="dataSensetive.updateDateEnd" (ngModelChange)="modelChangedDate($event, 'updateDateEnd')">
+              <input matInput [matDatepicker]="pickerLastUpdateEnd" placeholder="Last Update Date End:" [(ngModel)]="dataSensetive.updateDateEnd" (keydown)="pressBackspace($event, 'updateDateEnd')" (ngModelChange)="modelChangedDate($event, 'updateDateEnd')">
                 <mat-datepicker-toggle matSuffix [for]="pickerLastUpdateEnd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerLastUpdateEnd></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width custome-input-zoom">
-              <input matInput [matDatepicker]="pickerEraseDateBegin" placeholder="Erase Date Begin:" [(ngModel)]="dataSensetive.expirationDateBegin" (ngModelChange)="modelChangedDate($event, 'expirationDateBegin')">
+              <input matInput [matDatepicker]="pickerEraseDateBegin" placeholder="Erase Date Begin:" [(ngModel)]="dataSensetive.expirationDateBegin" (keydown)="pressBackspace($event, 'expirationDateBegin')" (ngModelChange)="modelChangedDate($event, 'expirationDateBegin')">
                 <mat-datepicker-toggle matSuffix [for]="pickerEraseDateBegin"></mat-datepicker-toggle>
                 <mat-datepicker #pickerEraseDateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width m-r-10 custome-input-zoom">
-              <input matInput [matDatepicker]="pickerEraseDateEnd" placeholder="Erase Date End:" [(ngModel)]="dataSensetive.expirationDateEnd" (ngModelChange)="modelChangedDate($event, 'expirationDateEnd')">
+              <input matInput [matDatepicker]="pickerEraseDateEnd" placeholder="Erase Date End:" [(ngModel)]="dataSensetive.expirationDateEnd" (keydown)="pressBackspace($event, 'expirationDateEnd')" (ngModelChange)="modelChangedDate($event, 'expirationDateEnd')">
                 <mat-datepicker-toggle matSuffix [for]="pickerEraseDateEnd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerEraseDateEnd></mat-datepicker>
             </mat-form-field>
@@ -80,9 +80,9 @@
         <div class="mat-elevation-z8">
           <table id="custome-table" class="custome-table" mat-table [dataSource]="dataSource">
 
-            <ng-container matColumnDef="tweakId">
+            <ng-container matColumnDef="sigId">
               <th mat-header-cell *matHeaderCellDef> Sensitive Group Id </th>
-              <td mat-cell *matCellDef="let element"> {{element.tweakId}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.sigId}} </td>
             </ng-container>
 
             <ng-container matColumnDef="keyContext">
@@ -118,17 +118,20 @@
             <ng-container matColumnDef="empty">
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
-                  <div class="text-center">
-                      <div>
-                        <mat-form-field class="example-full-width table-input">
-                          <input matInput [(ngModel)]="element['commentNew']">
-                        </mat-form-field>
-                      </div>
-                      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="btn-set-table">
-                        <button (click)="ClickAddNote(element['commentNew'], element.sigId)" [disabled]="!element['commentNew']" class="custome-table-btn" mat-raised-button color="accent">Add Note</button>
-                        <button (click)="ClickEraseNote(element.comment, element.sigId)" [disabled]="!element.comment || element.status == 0 " class="custome-table-btn" mat-raised-button color="accent">Erase</button>
-                      </div>
-                    </div>
+                <div class="text-center">
+                  <div>
+                    <mat-form-field class="example-full-width table-input">
+                      <input matInput [(ngModel)]="element['commentNew']">
+                    </mat-form-field>
+                  </div>
+                  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="btn-set-table">
+                    <button (click)="ClickAddNote(element['commentNew'], element.sigId)" [disabled]="!element['commentNew']" class="custome-table-btn"
+                      mat-raised-button color="accent">Add Note</button>
+                    <!-- <button (click)="ClickEraseNote(element['commentNew'], element.sigId)" [disabled]="!element['commentNew'] || element.status == 0 " class="custome-table-btn" mat-raised-button color="accent">Erase</button> -->
+                    <button (click)="ClickEraseNote(element.comment, element.sigId)" [disabled]="!element['commentNew']"
+                      class="custome-table-btn" mat-raised-button color="accent">Erase</button>
+                  </div>
+                </div>
               </td>
             </ng-container>
 

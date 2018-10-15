@@ -119,12 +119,18 @@ export class ManageDeKeysComponent implements OnInit {
   GetData(){
     this.VerifyServise.GetDEKeySummary(this.dataRequestKeys).subscribe((data:any) => {  
       console.log(data);   
-      if(data._body) 
+      if(data.json().result) 
       {
         this.data = data.json().result;
         this.dataSource = new MatTableDataSource<any>(this.data);
         this.dataSource.paginator = this.paginator;
         console.log("123 " + data);
+      }
+      else{
+        this.data = [];
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.data);
       }
     });
   }
@@ -135,6 +141,13 @@ export class ManageDeKeysComponent implements OnInit {
 
   modelChanged(e){
     this.RequestDeKey();
+  }
+
+  pressBackspace(e, key){
+    if(e.key == "Backspace"){
+      this.dataRequestKeys[key] = '';
+      this.RequestDeKey();
+    }
   }
 
   modelChangedDate(e, key){

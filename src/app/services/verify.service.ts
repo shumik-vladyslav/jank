@@ -47,7 +47,8 @@ export class VerifyService {
   }
 
   GetSensetiveDataSummary(obj:any){
-    return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}${obj.keyContext || obj.keyRingId || obj.keyId || obj.version ? '&keyContext=' + obj.keyRingId + '-' + obj.keyId + '-' + obj.version : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
+    //return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}${obj.keyContext || obj.keyRingId || obj.keyId || obj.version ? '&keyContext=' + obj.keyRingId + obj.keyId + obj.version : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
+    return this.http.post(this.url + `/cwGetSensitiveDataSummary?${obj.minId ? 'minId=' + obj.minId : ''}${obj.recordCount ? '&recordCount=' + obj.recordCount : ''}${obj.sigId ? '&sigId=' + obj.sigId : ''}${obj.status || obj.status == 0 ? '&status=' + obj.status : ''}${obj.keyRingId ? '&keyRingId=' + obj.keyRingId : ''}${obj.keyId ? '&keyId=' + obj.keyId : ''}${obj.version ? '&version' + obj.version : ''}${obj.createDateBegin ? '&createDateBegin=' + obj.createDateBegin : ''}${obj.createDateEnd ? '&createDateEnd=' + obj.createDateEnd : ''}${obj.updateDateBegin ? '&updateDateBegin=' + obj.updateDateBegin : ''}${obj.updateDateEnd ? '&updateDateEnd=' + obj.updateDateEnd : ''}${obj.expirationDateBegin ? '&expirationDateBegin=' + obj.expirationDateBegin : ''}${obj.expirationDateEnd ? '&expirationDateEnd=' + obj.expirationDateEnd : ''}`,[])
   }
 
   AddCommentToSigId(obj:any){
@@ -55,7 +56,7 @@ export class VerifyService {
   }
 
   FogetSigId(obj:any){
-    return this.http.post(this.url + `/cwForgetSigId?sigId=${obj.sigId}&comment=${obj.comment}`, [])
+    return this.http.post(this.url + encodeURI(`/cwEraseSigId?sigId=${obj.sigId}&comment=${obj.comment}`), [])
   }
   
   putData(obj:any) {

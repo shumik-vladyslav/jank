@@ -82,7 +82,7 @@ export class DekeyDetailsComponent implements OnInit, AfterViewInit {
       console.log(this.deKeyDetail);
       console.log(data.json());
     });
-    this.clickCancel();
+    document.getElementById("deKeySummaryFilter").scrollIntoView();
   }
 
   clickCancel(){
