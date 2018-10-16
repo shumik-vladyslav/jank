@@ -17,13 +17,13 @@
 .fixed-input{
     position: fixed;
     width: 100%;
-    top: 70px;
+    top: 200px;
     flex: 1 1 calc(30% - 25px);
     box-sizing: border-box;
     max-width: calc(23% - 25px);
     min-width: 249px;
     overflow-y: auto;
-    max-height: calc(100vh - 81px);
+    max-height: calc(100vh - 209px);
 }
 .custome-input-zoom{
     width: 100%;
