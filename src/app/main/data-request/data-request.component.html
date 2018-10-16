@@ -34,7 +34,11 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Status" [(ngModel)]="dataRequest.status" (ngModelChange)="modelChanged($event)">
+            <mat-select placeholder="Status" [(ngModel)]="dataRequest.status" (ngModelChange)="modelChanged($event)">
+              <mat-option *ngFor="let i of dataStatusMass" [value]="i.value">
+                {{i.name}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
@@ -43,10 +47,16 @@
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="From" [(ngModel)]="dataRequest.requestDateBegin" (ngModelChange)="modelChanged($event)">
+              <input matInput [matDatepicker]="pickerRequestDateBegin" placeholder="From" [(ngModel)]="dataRequest['dateBegin']"
+                (keydown)="pressBackspace($event, 'dateBegin', 'requestDateBegin')" (ngModelChange)="modelChangedDate($event, 'requestDateBegin')">
+              <mat-datepicker-toggle matSuffix [for]="pickerRequestDateBegin"></mat-datepicker-toggle>
+              <mat-datepicker #pickerRequestDateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="To" [(ngModel)]="dataRequest.requestDateEnd" (ngModelChange)="modelChanged($event)">
+              <input matInput [matDatepicker]="pickerRequestDateEnd" placeholder="To" [(ngModel)]="dataRequest['dateEnd']"
+                (keydown)="pressBackspace($event, 'dateEnd', 'requestDateEnd')" (ngModelChange)="modelChangedDate($event, 'requestDateEnd')">
+              <mat-datepicker-toggle matSuffix [for]="pickerRequestDateEnd"></mat-datepicker-toggle>
+              <mat-datepicker #pickerRequestDateEnd></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
@@ -56,10 +66,16 @@
           </div>
           <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="From" [(ngModel)]="dataRequest.fulfillDateBegin" (ngModelChange)="modelChanged($event)">
+              <input matInput [matDatepicker]="pickerFulfillDateBegin" placeholder="From" [(ngModel)]="dataRequest['fDateBegin']"
+                (keydown)="pressBackspace($event, 'fDateBegin', 'fulfillDateBegin')" (ngModelChange)="modelChangedDate($event, 'fulfillDateBegin')">
+              <mat-datepicker-toggle matSuffix [for]="pickerFulfillDateBegin"></mat-datepicker-toggle>
+              <mat-datepicker #pickerFulfillDateBegin></mat-datepicker>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="To" [(ngModel)]="dataRequest.fulfillDateEnd" (ngModelChange)="modelChanged($event)">
+              <input matInput [matDatepicker]="pickerFulfillDateEnd" placeholder="To" [(ngModel)]="dataRequest['fDateEnd']"
+                (keydown)="pressBackspace($event, 'fDateEnd', 'fulfillDateEnd')" (ngModelChange)="modelChangedDate($event, 'fulfillDateEnd')">
+              <mat-datepicker-toggle matSuffix [for]="pickerFulfillDateEnd"></mat-datepicker-toggle>
+              <mat-datepicker #pickerFulfillDateEnd></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
@@ -119,10 +135,11 @@
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row (click) = "someClick(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row (click)="someClick(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
 
-        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [length]="data.length" [pageSize]="10" showFirstLastButtons>
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [length]="data.length" [pageSize]="10"
+          showFirstLastButtons>
         </mat-paginator>
       </div>
     </div>
@@ -130,7 +147,8 @@
 
     <!-- CONTENT CARD -->
     <div *ngIf="requestDetail" class="content-card m-b-20">
-      <app-request-details (cancelEvent)="requestDetailsCancel($event)" (saveEvent)="requestDetailsSave($event)" [requestDetail]="requestDetail"></app-request-details>
+      <app-request-details (cancelEvent)="requestDetailsCancel($event)" (saveEvent)="requestDetailsSave($event)"
+        [requestDetail]="requestDetail"></app-request-details>
     </div>
     <!-- / CONTENT CARD -->
 

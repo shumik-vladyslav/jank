@@ -128,7 +128,7 @@
                     <button (click)="ClickAddNote(element['commentNew'], element.sigId)" [disabled]="!element['commentNew']" class="custome-table-btn"
                       mat-raised-button color="accent">Add Note</button>
                     <!-- <button (click)="ClickEraseNote(element['commentNew'], element.sigId)" [disabled]="!element['commentNew'] || element.status == 0 " class="custome-table-btn" mat-raised-button color="accent">Erase</button> -->
-                    <button (click)="ClickEraseNote(element.comment, element.sigId)" [disabled]="!element['commentNew']"
+                    <button (click)="ClickEraseNote(element.comment, element.sigId)" [disabled]="!element['commentNew'] || element.status == 0"
                       class="custome-table-btn" mat-raised-button color="accent">Erase</button>
                   </div>
                 </div>

@@ -42,15 +42,13 @@ export class SensitiveDataInventoryComponent implements OnInit {
   
   dataStatusMass = [
     {name: 'Any', value: ''},
-    {name: 'Created', value: 0},
-    {name: 'Active', value: 1},
-    {name: 'Expired', value: 2},
+    {name: 'Inactive', value: 0},
+    {name: 'Active', value: 1}
   ]
 
   dataStatus = {
-    0: "Created",
-    1: "Active",
-    2: "Expired"
+    0: "Inactive",
+    1: "Active"
   }
 
   dataSource;

@@ -126,6 +126,8 @@ export class AppComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
 
+                console.log(localStorage.getItem('user'));
+
                 this.fuseConfig = config;
 
                 // Boxed

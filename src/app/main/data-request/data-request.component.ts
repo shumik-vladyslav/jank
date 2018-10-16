@@ -22,7 +22,7 @@ export interface PeriodicElement {
 export class DataRequestComponent implements OnInit{
 
   constructor( private VerifyServise: VerifyService ) { 
-    console.log(this.method())
+    console.log(this.GetDataRequest())
   }
 
   dataType = {
@@ -58,6 +58,17 @@ export class DataRequestComponent implements OnInit{
     status: '',
   }
 
+  dataStatusMass = [
+    {name: 'Any', value: ''},
+    {name: 'Deleted', value: 1},
+    {name: 'Unassigned', value: 2},
+    {name: 'In Progress', value: 3},
+    {name: 'Pending Customer Input', value: 4},
+    {name: 'Pending Business Input', value: 5},
+    {name: 'Pending Legal Input', value: 6},
+    {name: 'Complete', value: 7}
+  ]
+
   dataStatus = {
     1: "Deleted",
     2: "Unassigned",
@@ -81,12 +92,12 @@ export class DataRequestComponent implements OnInit{
 
   requestDetailsSave(e){
     this.requestDetail = e;
-    this.method();
+    this.GetDataRequest();
   }
 
   firstRunTime = Date.now();
 
-  method(){
+  GetDataRequest(){
     if ((Date.now() - this.firstRunTime ) < 300)  return;
 
      this.firstRunTime = Date.now();
@@ -104,11 +115,33 @@ export class DataRequestComponent implements OnInit{
 
         console.log(data.json());
       }
+      else{
+        this.data = [];
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.data);
+      }
     });
   }
 
+  pressBackspace(e, key, key2){
+    if(e.key == "Backspace"){
+      this.dataRequest[key] = '';
+      this.dataRequest[key2] = '';
+      this.GetDataRequest();
+    }
+  }
+
+  modelChangedDate(e, key){
+    console.log(e);
+    if(typeof(e) != "string" && e != null){
+      this.dataRequest[key] = e.format("YYYY/MM/DD HH:mm:ss");
+    }
+    this.GetDataRequest();
+  }
+
   modelChanged(e){
-    this.method();
+    this.GetDataRequest();
   }
 
   ngOnInit() {
