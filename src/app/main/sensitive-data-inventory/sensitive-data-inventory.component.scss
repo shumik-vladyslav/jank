@@ -17,17 +17,27 @@
 .fixed-input{
     position: fixed;
     width: 100%;
-    top: 5px;
+    top: 200px;
     flex: 1 1 calc(30% - 25px);
     box-sizing: border-box;
     max-width: calc(23% - 25px);
     min-width: 249px;
+    overflow-y: auto;
+    max-height: calc(100vh - 209px);
 }
 .custome-input-zoom{
     width: 100%;
-    zoom: .78;
+    zoom: .7;
 }
-
+@media screen and (min-width: 960px) {
+    .custom-centered{
+        padding-left: calc(23% + 73px) !important;
+    }
+    .cdk-overlay-pane{    
+        margin-bottom: 291px;
+        zoom: 0.9;
+    }
+}
 @media screen and (max-width: 960px) {
     .fixed-input{
         position: relative;
@@ -37,6 +47,7 @@
         box-sizing: border-box;
         max-width: 100%;
         min-width: 249px;
+        max-height: unset;
     }
     .change-blok{
         display: none;
