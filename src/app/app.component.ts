@@ -125,8 +125,13 @@ export class AppComponent implements OnInit, OnDestroy
         this._fuseConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
-
-                console.log(localStorage.getItem('user'));
+                // console.log(navigation);
+                // console.log(localStorage);
+                // console.log(localStorage.getItem('user'));
+                // if(!localStorage.getItem('user')){
+                //     console.log(navigation[0].children.length)
+                //     navigation[0].children.length = 6;
+                // }
 
                 this.fuseConfig = config;
 

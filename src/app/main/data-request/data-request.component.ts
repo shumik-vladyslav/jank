@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { VerifyService } from '../../services/verify.service';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { CheckUserLoginService } from 'app/services/check-user-login.service';
 
 export interface PeriodicElement {
   RequestID: number;
@@ -21,8 +22,9 @@ export interface PeriodicElement {
 })
 export class DataRequestComponent implements OnInit{
 
-  constructor( private VerifyServise: VerifyService ) { 
-    console.log(this.GetDataRequest())
+  constructor( private VerifyServise: VerifyService, private CheckUserLogin: CheckUserLoginService) { 
+    console.log(this.GetDataRequest());
+    CheckUserLogin.checkUser();
   }
 
   dataType = {
@@ -79,6 +81,8 @@ export class DataRequestComponent implements OnInit{
     7: "Complete", 
   }
 
+  errorStatus;
+  loading;
   requestDetail;
   
   someClick(row){
@@ -106,6 +110,7 @@ export class DataRequestComponent implements OnInit{
 
   GetData(){
     this.VerifyServise.DataOwnerRequestQueue(this.dataRequest).subscribe((data: any) => {
+      this.loading = false;
       console.log(data);
       if(data._body) 
       {
@@ -121,6 +126,10 @@ export class DataRequestComponent implements OnInit{
         this.dataSource.paginator = this.paginator;
         console.log(this.data);
       }
+    },(error) => {
+      this.errorStatus = error;
+      this.loading = true;
+      console.log(this.errorStatus);
     });
   }
 
@@ -135,12 +144,17 @@ export class DataRequestComponent implements OnInit{
   modelChangedDate(e, key){
     console.log(e);
     if(typeof(e) != "string" && e != null){
-      this.dataRequest[key] = e.format("YYYY/MM/DD HH:mm:ss");
+      this.dataRequest[key] = e.format("YYYY-MM-DD");
+      console.log(this.dataRequest);
     }
+    console.log(this.errorStatus);
+    this.errorStatus = 'asd';
+    console.log(this.errorStatus);
     this.GetDataRequest();
   }
 
   modelChanged(e){
+    this.errorStatus = '';
     this.GetDataRequest();
   }
 

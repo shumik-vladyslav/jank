@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { VerifyService } from '../../services/verify.service';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { CheckUserLoginService } from 'app/services/check-user-login.service';
 
 @Component({
   selector: 'app-manage-de-keys',
@@ -10,8 +11,9 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 export class ManageDeKeysComponent implements OnInit {
 
-  constructor( private VerifyServise: VerifyService ) {
+  constructor( private VerifyServise: VerifyService, private CheckUserLogin: CheckUserLoginService ) {
     console.log(this.RequestDeKey());
+    CheckUserLogin.checkUser();
    }
 
   dataStatusMass = [

@@ -77,6 +77,9 @@
               <mat-datepicker-toggle matSuffix [for]="pickerFulfillDateEnd"></mat-datepicker-toggle>
               <mat-datepicker #pickerFulfillDateEnd></mat-datepicker>
             </mat-form-field>
+            <div *ngIf="loading" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+              {{errorStatus}}
+            </div>
           </div>
         </div>
       </div>

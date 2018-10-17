@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VerifyService } from 'app/services/verify.service';
+import { CheckUserLoginService } from 'app/services/check-user-login.service';
 
 @Component({
   selector: 'app-verify-operations',
@@ -10,8 +11,9 @@ export class VerifyOperationsComponent implements OnInit {
 
   // service;
 
-  constructor( private verifyService: VerifyService) {
+  constructor( private verifyService: VerifyService, private CheckUserLogin: CheckUserLoginService) {
     this.init();
+    CheckUserLogin.checkUser();
    }
 
   ngOnInit() {

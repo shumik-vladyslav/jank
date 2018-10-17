@@ -62,4 +62,12 @@ export class VerifyService {
   putData(obj:any) {
     return this.http.post(this.url + `/cwPutDataOwnerRequest?id=${obj.id}&status=${obj.status}&newComment=${obj.newComment}`, {})
   }
+
+  CreateReportRequest(userId){
+    return this.http.post(this.url + `/cwCreateReportRequest?user=${userId}`,[])
+  }
+  
+  CreateEraseRequest(userId){
+    return this.http.post(this.url + `/cwCreateEraseRequest?user=${userId}`,[])
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { VerifyService } from '../../services/verify.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { CheckUserLoginService } from 'app/services/check-user-login.service';
 
 @Component({
   selector: 'app-sensitive-data-inventory',
@@ -9,8 +10,9 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 })
 export class SensitiveDataInventoryComponent implements OnInit {
 
-  constructor(private VerifyService: VerifyService) { 
+  constructor(private VerifyService: VerifyService, private CheckUserLogin: CheckUserLoginService) { 
     console.log(this.GetDataSensetive());
+    CheckUserLogin.checkUser();
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
