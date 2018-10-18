@@ -12,8 +12,10 @@ export class CheckUserLoginService {
   constructor(private router: Router) {
   }
 
+  prefixStorage = "set-prfix-local-";
+
   checkUser(){
-    if (!localStorage.getItem("user")) {
+    if (!localStorage.getItem(this.prefixStorage + "user")) {
       this.router.navigate(['/login']);
     }
   }

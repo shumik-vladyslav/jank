@@ -5,6 +5,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 import { Router } from '@angular/router';
 import { VerifyService } from '../../services/verify.service';
+import { CheckUserLoginService } from 'app/services/check-user-login.service';
 
 @Component({
     selector: 'app-sing-in',
@@ -35,6 +36,7 @@ export class SingInComponent implements OnInit {
         private _formBuilder: FormBuilder,
         private router: Router,
         private VerifyServise: VerifyService,
+        private CheckUserLogin: CheckUserLoginService
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -85,28 +87,29 @@ export class SingInComponent implements OnInit {
         this.email.reset(); this.password.reset();
     }
 
-    errorMessege = false;
+    errorMessage = false;
     errorMess = ""
+    prefixKey;
     singIn() {
         if (this.loginForm.valid) {
             this.VerifyServise.singIn(this.data.user, this.data.password).subscribe((data: any) => {
                 console.log(data);
                 if (data.status === 200) {
-                    localStorage.setItem('user', JSON.stringify(data));
+                    localStorage.setItem(this.CheckUserLogin.prefixStorage + 'user', JSON.stringify(data));
                     this.router.navigateByUrl('/verify-operations');
                 } else if (data.status === "ChangePassword") {
                     this.router.navigateByUrl('/change-pass');
                 } else {
-                    this.errorMessege = true;
+                    this.errorMessage = true;
                 }
 
             },(data) => {
-                this.errorMessege = true;
+                this.errorMessage = true;
                 console.log(data)
                 this.errorMess = data.json()['message'];
             });
         } else{
-            this.errorMessege = true;
+            this.errorMessage = true;
         }
     }
 }

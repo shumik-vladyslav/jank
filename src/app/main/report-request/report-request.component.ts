@@ -27,7 +27,7 @@ export class ReportRequestComponent implements OnInit {
       this.showSuccessMessage = true;
       this.showError = false;
     
-      let data = JSON.parse(localStorage.getItem('user'));
+      let data = JSON.parse(localStorage.getItem(this.CheckUserLogin.prefixStorage + 'user'));
       console.log(data);
       let id = JSON.parse(data._body).userId;
 

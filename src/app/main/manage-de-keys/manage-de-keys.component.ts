@@ -29,6 +29,7 @@ export class ManageDeKeysComponent implements OnInit {
     2: "Expired"
   }
 
+  selectedRowIndex;
   dataSource;
   deKeyDetail;
   data = [];
@@ -57,6 +58,7 @@ export class ManageDeKeysComponent implements OnInit {
     this.deKeyDetail = null;
     setTimeout(() => {
       this.deKeyDetail = row;
+      this.selectedRowIndex = row.id;
       this.ParseMasterKeyString();
     },100)
   }

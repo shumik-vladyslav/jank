@@ -14,11 +14,16 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
 import { navigation } from 'app/navigation/navigation';
 import { locale as navigationEnglish } from 'app/navigation/i18n/en';
 import { locale as navigationTurkish } from 'app/navigation/i18n/tr';
+import { Router } from '@angular/router';
+import { CheckUserLoginService } from './services/check-user-login.service';
 
 @Component({
     selector   : 'app',
     templateUrl: './app.component.html',
-    styleUrls  : ['./app.component.scss']
+    styleUrls  : ['./app.component.scss'],
+    host : {
+        '(document:click)': 'checkUserActivity()',
+    }
 })
 export class AppComponent implements OnInit, OnDestroy
 {
@@ -41,6 +46,8 @@ export class AppComponent implements OnInit, OnDestroy
      * @param {TranslateService} _translateService
      */
     constructor(
+        private router: Router,
+        private CheckUserLogin: CheckUserLoginService,
         @Inject(DOCUMENT) private document: any,
         private _fuseConfigService: FuseConfigService,
         private _fuseNavigationService: FuseNavigationService,
@@ -116,6 +123,19 @@ export class AppComponent implements OnInit, OnDestroy
     // @ Lifecycle hooks
     // -----------------------------------------------------------------------------------------------------
 
+    clickTime = Date.now();
+    sessionTime = 60;
+    clickCheckTIme = this.clickTime + this.sessionTime * 60 * 1000;
+
+    checkUserActivity(){
+        this.clickTime = Date.now();
+        if(this.clickTime >= this.clickCheckTIme){
+            localStorage.removeItem(this.CheckUserLogin.prefixStorage + "user");
+            this.router.navigate(['/login']);
+        }
+        this.clickCheckTIme = this.clickTime + this.sessionTime * 60 * 1000; 
+    }
+
     /**
      * On init
      */
@@ -125,13 +145,6 @@ export class AppComponent implements OnInit, OnDestroy
         this._fuseConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
-                // console.log(navigation);
-                // console.log(localStorage);
-                // console.log(localStorage.getItem('user'));
-                // if(!localStorage.getItem('user')){
-                //     console.log(navigation[0].children.length)
-                //     navigation[0].children.length = 6;
-                // }
 
                 this.fuseConfig = config;
 
