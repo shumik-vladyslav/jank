@@ -26,7 +26,7 @@ export class DataRequestComponent implements OnInit{
     console.log(this.GetDataRequest());
     CheckUserLogin.checkUser();
   }
-
+  selectedRowIndex
   dataType = {
     0: "Any",
     1: "Data Request",
@@ -86,7 +86,8 @@ export class DataRequestComponent implements OnInit{
   requestDetail;
   
   someClick(row){
-    console.log(row);
+    this.selectedRowIndex = row.id;
+    console.log(row, this.selectedRowIndex);
     this.requestDetail = row;
   }
 
