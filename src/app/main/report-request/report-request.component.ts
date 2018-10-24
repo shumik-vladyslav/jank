@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VerifyService } from 'app/services/verify.service';
 import { CheckUserLoginService } from 'app/services/check-user-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-request',
@@ -13,8 +14,9 @@ export class ReportRequestComponent implements OnInit {
   agreeTerms;
   showError = false;
 
-  constructor(private VerifyService: VerifyService, private CheckUserLogin: CheckUserLoginService) {
-    CheckUserLogin.checkUser();
+  constructor(private VerifyService: VerifyService, private CheckUserLogin: CheckUserLoginService,
+    private router: Router) {
+    CheckUserLogin.checkUser(this.router.url);
    }
 
   ngOnInit() {

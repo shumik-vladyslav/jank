@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VerifyService } from 'app/services/verify.service';
 import { CheckUserLoginService } from 'app/services/check-user-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-erase-request',
@@ -15,8 +16,9 @@ export class EraseRequestComponent implements OnInit {
   understund;
   showError = false;
 
-  constructor(private VerifyService : VerifyService, private CheckUserLogin: CheckUserLoginService) {
-    CheckUserLogin.checkUser();
+  constructor(private VerifyService : VerifyService, private CheckUserLogin: CheckUserLoginService,
+    private router: Router) {
+    CheckUserLogin.checkUser(this.router.url);
    }
 
   ngOnInit() {
@@ -31,7 +33,6 @@ export class EraseRequestComponent implements OnInit {
       this.showError = true;
     } else if (JSON.parse(data._body).status === "Error"){
       this.showErrorMessage = true;
-      console.log(this.showErrorMessage);
     } else if( this.agreeTerms && this.understund ){
       this.showSuccessMessage = true;
       this.showError = false;

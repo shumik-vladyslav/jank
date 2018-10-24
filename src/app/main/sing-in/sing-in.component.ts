@@ -96,7 +96,12 @@ export class SingInComponent implements OnInit {
                 console.log(data);
                 if (data.status === 200) {
                     localStorage.setItem(this.CheckUserLogin.prefixStorage + 'user', JSON.stringify(data));
-                    this.router.navigateByUrl('/verify-operations');
+                    if(this.CheckUserLogin.pastUrl == null){
+                        this.router.navigateByUrl('/verify-operations');
+                    } else {
+                        this.router.navigateByUrl(this.CheckUserLogin.pastUrl);
+                        this.CheckUserLogin.pastUrl = null;
+                    }
                 } else if (data.status === "ChangePassword") {
                     this.router.navigateByUrl('/change-pass');
                 } else {

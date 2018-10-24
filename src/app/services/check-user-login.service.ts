@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
-import { VerifyService } from './verify.service';
 
 
 
@@ -12,10 +11,13 @@ export class CheckUserLoginService {
   constructor(private router: Router) {
   }
 
+  pastUrl = null;
+
   prefixStorage = "set-prfix-local-";
 
-  checkUser(){
+  checkUser(pastUrl){
     if (!localStorage.getItem(this.prefixStorage + "user")) {
+      this.pastUrl = pastUrl;
       this.router.navigate(['/login']);
     }
   }
