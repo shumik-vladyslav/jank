@@ -10,6 +10,7 @@ import { CheckUserLoginService } from 'app/services/check-user-login.service';
 export class EraseRequestComponent implements OnInit {
 
   showSuccessMessage = false;
+  showErrorMessage = false;
   agreeTerms;
   understund;
   showError = false;
@@ -24,14 +25,17 @@ export class EraseRequestComponent implements OnInit {
     console.log(event);
   }
   submit(){
+    let data = JSON.parse(localStorage.getItem(this.CheckUserLogin.prefixStorage +'user'));
+    
     if (!this.agreeTerms || !this.understund){
       this.showError = true;
-    } else if ( this.agreeTerms && this.understund ){
+    } else if (JSON.parse(data._body).status === "Error"){
+      this.showErrorMessage = true;
+      console.log(this.showErrorMessage);
+    } else if( this.agreeTerms && this.understund ){
       this.showSuccessMessage = true;
       this.showError = false;
 
-      let data = JSON.parse(localStorage.getItem(this.CheckUserLogin.prefixStorage +'user'));
-      console.log(data);
       let id = JSON.parse(data._body).userId;
 
       this.VerifyService.CreateEraseRequest(id).subscribe((data: any) => {
