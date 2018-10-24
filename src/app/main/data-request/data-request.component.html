@@ -77,10 +77,15 @@
               <mat-datepicker-toggle matSuffix [for]="pickerFulfillDateEnd"></mat-datepicker-toggle>
               <mat-datepicker #pickerFulfillDateEnd></mat-datepicker>
             </mat-form-field>
-            <div *ngIf="loading" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <!-- <div *ngIf="loading" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
               {{errorStatus}}
-            </div>
+            </div> -->
           </div>
+        </div>
+        <div class="message-box error fs-16 m-b-10">
+          <span>
+            {{errorStatus}}
+          </span>
         </div>
       </div>
 
