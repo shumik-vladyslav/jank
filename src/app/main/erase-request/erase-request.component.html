@@ -7,6 +7,8 @@
 <!-- <mat-checkbox>Check me!</mat-checkbox> -->
 
 
+
+
 <div class="hide" [ngClass]="{'show': showSuccessMessage}">
   <app-success-message>
     <div class="m-b-10">
@@ -18,6 +20,26 @@
     </div>
   </app-success-message>
 </div>
+
+<div class="show" [ngClass]="{'show': !showErrorMessage}">
+  <div class="message-outer">
+    <div class="message-inside content-card">
+      <div class="message-box error fs-30" fxLayout="row" fxLayoutAlign="center center">
+        Error!
+      </div>
+      <div class="text-error">
+        <div class="m-b-10">
+          You Erase Request has been error
+        </div>
+        <div class="text-center">
+          <button mat-raised-button color="success" (click)="showErrorMessage = false">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="page-layout carded fullwidth">
 
   <!-- TOP BACKGROUND -->
@@ -56,7 +78,7 @@
 
       <div class="content p-24 bot-wrap">
         <div class="m-b-10">
-            <!-- (change)="checkValue(isChecked)" -->
+          <!-- (change)="checkValue(isChecked)" -->
           <mat-checkbox [(ngModel)]="agreeTerms">Agree to the terms and Conditions</mat-checkbox>
         </div>
         <div class="m-b-10">
