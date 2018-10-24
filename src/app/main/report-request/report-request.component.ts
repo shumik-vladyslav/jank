@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ReportRequestComponent implements OnInit {
 
   showSuccessMessage = false;
+  showErrorMessage = false;
   agreeTerms;
   showError = false;
 
@@ -23,8 +24,13 @@ export class ReportRequestComponent implements OnInit {
   }
 
   submit(){
+    let data = JSON.parse(localStorage.getItem(this.CheckUserLogin.prefixStorage +'user'));
+
     if (!this.agreeTerms){
       this.showError = true;
+    } else if (JSON.parse(data._body).status === "Error"){
+      console.log(data);
+      this.showErrorMessage = true;
     } else if ( this.agreeTerms ){
       this.showSuccessMessage = true;
       this.showError = false;
