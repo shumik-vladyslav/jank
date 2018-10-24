@@ -10,6 +10,7 @@ import { CheckUserLoginService } from 'app/services/check-user-login.service';
 export class EraseRequestComponent implements OnInit {
 
   showSuccessMessage = false;
+  showErrorMessage = false;
   agreeTerms;
   understund;
   showError = false;
