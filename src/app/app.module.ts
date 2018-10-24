@@ -40,53 +40,7 @@ import { DekeyDetailsComponent } from './main/dekey-details/dekey-details.compon
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { SensitiveDataInventoryComponent } from './main/sensitive-data-inventory/sensitive-data-inventory.component';
 import { SampleComponent } from './main/sample/sample.component';
-
-const appRoutes: Routes = [
-    {
-        path     : 'sample',
-        component: SampleComponent
-    },
-    {
-        path     : 'erase-equest',
-        component: EraseRequestComponent
-    },
-    {
-        path     : 'report-equest',
-        component: ReportRequestComponent
-    },
-    {
-        path     : 'login',
-        component: SingInComponent
-    },
-    {
-        path     : 'register',
-        component: SingUpComponent
-    },
-    {
-        path     : 'change-pass',
-        component: ChangePasswordComponent
-    },
-    {
-        path     : 'verify-operations',
-        component: VerifyOperationsComponent
-    },
-    {
-        path     : 'forget-pass',
-        component: ForgotPasswordComponent
-    },
-    {
-        path     : 'data-requst',
-        component: DataRequestComponent
-    },
-    {
-        path     : 'de-keys',
-        component: ManageDeKeysComponent
-    },
-    {
-        path     : 'sensitive-data',
-        component: SensitiveDataInventoryComponent
-    },    
-];
+import { appRoutes } from './app-routing.module';
 
 @NgModule({
     declarations: [
