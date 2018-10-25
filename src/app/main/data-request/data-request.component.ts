@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { VerifyService } from '../../services/verify.service';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { CheckUserLoginService } from 'app/services/check-user-login.service';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   RequestID: number;
@@ -22,9 +23,10 @@ export interface PeriodicElement {
 })
 export class DataRequestComponent implements OnInit{
 
-  constructor( private VerifyServise: VerifyService, private CheckUserLogin: CheckUserLoginService) { 
+  constructor( private VerifyServise: VerifyService, private CheckUserLogin: CheckUserLoginService,
+    private router: Router) { 
     console.log(this.GetDataRequest());
-    CheckUserLogin.checkUser();
+    CheckUserLogin.checkUser(this.router.url);
   }
   selectedRowIndex
   dataType = {

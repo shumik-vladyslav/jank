@@ -16,3 +16,38 @@
     opacity: 1;
     transition: all .3s;
 }
+
+.message-outer{
+    background: rgba(0, 0, 0, 0.278);
+    width: 100%;
+    height: calc( 100% + 64px );
+    min-height: 100vh;
+    margin-top: -64px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 137;
+    justify-content: center;
+    .message-inside{
+        max-width: 775px;
+        background: white;
+        margin-left: -20%;
+        margin-top: -10%;
+    }
+}
+.icon-success{
+    font-size: 41px;
+    width: unset;
+    height: unset;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+.message-box{
+    align-items: center;
+    display: flex;
+}
+.text-error{
+    padding: 25px;
+    font-size: 20px;
+    color: #ef5350;
+}

@@ -17,6 +17,25 @@
     </div>
   </app-success-message>
 </div>
+
+<div class="hide" [ngClass]="{'show': showErrorMessage}">
+    <div class="message-outer">
+      <div class="message-inside content-card">
+        <div class="message-box error fs-30" fxLayout="row" fxLayoutAlign="center center">
+          Error!
+        </div>
+        <div class="text-error">
+          <div class="m-b-10">
+            Your Report Request has been error
+          </div>
+          <div class="text-center">
+            <button mat-raised-button color="success" (click)="showErrorMessage = false">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="page-layout carded fullwidth">
 
   <!-- TOP BACKGROUND -->

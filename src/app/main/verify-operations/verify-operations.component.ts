@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VerifyService } from 'app/services/verify.service';
 import { CheckUserLoginService } from 'app/services/check-user-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify-operations',
@@ -11,9 +12,10 @@ export class VerifyOperationsComponent implements OnInit {
 
   // service;
 
-  constructor( private verifyService: VerifyService, private CheckUserLogin: CheckUserLoginService) {
+  constructor( private verifyService: VerifyService, private CheckUserLogin: CheckUserLoginService,
+    private router: Router) {
     this.init();
-    CheckUserLogin.checkUser();
+    CheckUserLogin.checkUser(this.router.url);
    }
 
   ngOnInit() {
