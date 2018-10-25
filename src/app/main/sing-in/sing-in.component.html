@@ -9,8 +9,9 @@
       </div> -->
 
       <div class="title">LOGIN</div>
-      <div *ngIf = "showMessSucReg" class="saccess-text">
-          You have successfully registered. We have emailed your temporary password. Login to change password and get your Data Agent Id and API Key. You need the API Key for calling CW Services.
+      <div *ngIf="showMessSucReg" class="saccess-text">
+        You have successfully registered. We have emailed your temporary password. Login to change password and get your Data Agent
+        Id and API Key. You need the API Key for calling CW Services.
       </div>
 
       <form name="loginForm" [formGroup]="loginForm" novalidate>
@@ -43,29 +44,33 @@
           </a>
         </div> -->
         <div *ngIf="errorMessege && loginForm.invalid" class="message-box error fs-12 m-t-15 m-b-10">
-            Login Failed, Please check your user name and password.
+          Login Failed, Please check your user name and password.
         </div>
         <div *ngIf="errorMess" class="message-box error fs-12 m-t-15 m-b-10">
           {{errorMess}}
-          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" class="register-link" (click)="goToRegister()">
+          New User? Sign Up
+        </div>
         <div fxLayout="row" fxLayoutAlign="center center">
           <!-- [disabled]="loginForm.invalid" -->
           <!-- [routerLink]="'/pages/auth/register'" -->
-          <button [ngClass]="{'inactive-style': loginForm.invalid}" (click)="singIn()" mat-raised-button color="accent" class="submit-button" aria-label="LOG IN">
+          <button [ngClass]="{'inactive-style': loginForm.invalid}" (click)="singIn()" mat-raised-button color="accent" class="submit-button"
+            aria-label="LOG IN">
             LOGIN
           </button>
           <button (click)="clearFilds()" mat-raised-button color="accent" class="submit-button">
             Cancel
           </button>
         </div>
-        
+
       </form>
 
       <div class="forgot-pass" (click)="linkForgotPass()">
         Forgot Password?
       </div>
-      
-      
+
+
     </div>
 
   </div>

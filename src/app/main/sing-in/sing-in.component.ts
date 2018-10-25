@@ -112,4 +112,8 @@ export class SingInComponent implements OnInit {
             this.errorMessage = true;
         }
     }
+
+    goToRegister(){
+        this.router.navigateByUrl('/register');
+    }
 }
