@@ -100,7 +100,6 @@ export class SingInComponent implements OnInit {
                         this.router.navigateByUrl('/verify-operations');
                     } else {
                         this.router.navigateByUrl(this.CheckUserLogin.pastUrl);
-                        this.CheckUserLogin.pastUrl = null;
                     }
                 } else if (data.status === "ChangePassword") {
                     this.router.navigateByUrl('/change-pass');
