@@ -130,9 +130,8 @@ export class DataRequestComponent implements OnInit{
         console.log(this.data);
       }
     },(error) => {
-      this.errorStatus = error;
+      this.errorStatus = JSON.parse(error._body).debugMessage;
       this.loading = true;
-      console.log(this.errorStatus);
     });
   }
 
@@ -152,7 +151,6 @@ export class DataRequestComponent implements OnInit{
     }
     console.log(this.errorStatus);
     this.errorStatus = 'asd';
-    console.log(this.errorStatus);
     this.GetDataRequest();
   }
 
