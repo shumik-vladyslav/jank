@@ -16,7 +16,7 @@
 }
 
 .full-width{
-    width: 100%;
+    width: 100% !important;
 }
 .width-50{
     width: 50%;
@@ -51,4 +51,7 @@
 // }
 .cdk-overlay-connected-position-bounding-box{
     overflow: auto;
+}
+.mat-checkbox-layout .mat-checkbox-label{
+    white-space: normal !important;
 }

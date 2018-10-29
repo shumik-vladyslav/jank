@@ -14,14 +14,11 @@
 }
 .risk-wrap{
     text-align: center;
-    max-width: 202px;
-    margin-top: 77px;
 }
 .risk-wrap-inside{
-    position: fixed;
-    top: 203px;
-    right: 12px;
-    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .lable-risk{
     font-size: 34px;
@@ -31,31 +28,38 @@
     color: rgb(253, 69, 69);
 }
 .coment{
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
     color: #039be5;
 }
 .img1-wrap{
-    width: 290px;
+    width: 150px;
     img{
-        max-width: unset;
-        height: 334px;
-        margin-left: -50px;
-        width: 440px;
+    }
+}
+.selects-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.checkbox-wrap{
+    width: 25%;
+    .mat-checkbox{
+        font-size: 13px;
     }
 }
 .img2-wrap{
     img{
         margin-right: 20px;
-        width: 264px;
+        width: 120px;
+        min-width: 120px;
         position: relative;
-        top: 7px;
+        top: 20px;
     }
 }
 .img4-wrap{
-    width: 282px;
+    width: 150px;
     padding-right: 20px;
     img{
         margin-right: 20px;
@@ -64,9 +68,15 @@
     }
 }
 
+.mat-checkbox-layout{
+    white-space: normal !important;
+}
+.mat-checkbox-layout .mat-checkbox-label{
+    white-space: normal !important;
+}
 .scroll-wrap-select{
-    // max-height: calc( 100vh - 160px );
-    // overflow-y: auto;
+    max-height: calc( 100vh - 160px );
+    overflow-y: auto;
 }
 .second-caption{
     border-bottom: 1px solid #eaeaea;

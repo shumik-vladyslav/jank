@@ -37,49 +37,49 @@ export class SampleComponent {
         console.log("scrolling");
       } 
     obj1 = {
-        drop1: "no",
-        drop2: "no",
-        drop3: "no",
-        drop4: "no",
-        drop5: "no",
-        drop6: "no",
-        drop7: "no",
-        drop8: "no",
-        drop9: "no",
-        drop10: "no",
-        drop11: "no",
-        drop12: "no",
-        drop13: "no",
-        drop14: "no",
-        drop15: "no",
-        drop16: "no",
-        drop17: "no",
-        drop18: "no",
-        drop19: "no",
-        drop20: "no"
+        drop1: false,
+        drop2: false,
+        drop3: false,
+        drop4: false,
+        drop5: false,
+        drop6: false,
+        drop7: false,
+        drop8: false,
+        drop9: false,
+        drop10: false,
+        drop11: false,
+        drop12: false,
+        drop13: false,
+        drop14: false,
+        drop15: false,
+        drop16: false,
+        drop17: false,
+        drop18: false,
+        drop19: false,
+        drop20: false
     }
     obj2 = {
-        drop21: "no",
-        drop22: "no"
+        drop21: false,
+        drop22: false
     }
     obj3 = {
-        drop23: "no",
-        drop24: "no",
-        drop25: "no"
+        drop23: false,
+        drop24: false,
+        drop25: false
     }
     obj4 = {
-        drop26: "no",
-        drop27: "no",
-        drop28: "no",
-        drop29: "no",
-        drop30: "no"
+        drop26: false,
+        drop27: false,
+        drop28: false,
+        drop29: false,
+        drop30: false
     }
 
-    choice = [
-        { value: 'yes', viewValue: 'YES' },
-        { value: 'no', viewValue: 'NO' },
-        { value: 'not applicable', viewValue: 'NOT APPLICABLE' }
-    ];
+    // choice = [
+    //     { value: 'yes', viewValue: 'YES' },
+    //     { value: 'no', viewValue: 'NO' },
+    //     { value: 'not applicable', viewValue: 'NOT APPLICABLE' }
+    // ];
     data1 = [
         { name: '(a) Person Names', key: 'drop1' },
         { name: '(b) Addresses', key: 'drop2' },
@@ -162,9 +162,9 @@ export class SampleComponent {
         Object.keys(this.obj1).forEach((key) => {
 
             // console.log(key, this.obj1[key]);
-            if (this.obj1[key] === 'yes') {
+            if (this.obj1[key] === true) {
                 this.yesCount1++
-            } else if (this.obj1[key] === 'no') {
+            } else if (this.obj1[key] === false) {
                 this.noCount1++
             }
         });
@@ -172,9 +172,9 @@ export class SampleComponent {
         Object.keys(this.obj2).forEach((key) => {
 
             // console.log(key, this.obj2[key]);
-            if (this.obj2[key] === 'yes') {
+            if (this.obj2[key] === true) {
                 this.yesCount2++
-            } else if (this.obj2[key] === 'no') {
+            } else if (this.obj2[key] === false) {
                 this.noCount2++
             }
         });
@@ -182,9 +182,9 @@ export class SampleComponent {
         Object.keys(this.obj3).forEach((key) => {
 
             // console.log(key, this.obj3[key]);
-            if (this.obj3[key] === 'yes') {
+            if (this.obj3[key] === true) {
                 this.yesCount3++
-            } else if (this.obj3[key] === 'no') {
+            } else if (this.obj3[key] === false) {
                 this.noCount3++
             }
         });
@@ -192,9 +192,9 @@ export class SampleComponent {
         Object.keys(this.obj4).forEach((key) => {
 
             // console.log(key, this.obj4[key]);
-            if (this.obj4[key] === 'yes') {
+            if (this.obj4[key] === true) {
                 this.yesCount3++
-            } else if (this.obj4[key] === 'no') {
+            } else if (this.obj4[key] === false) {
                 this.noCount3++
             }
         });
