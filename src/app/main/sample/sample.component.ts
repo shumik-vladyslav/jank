@@ -21,7 +21,7 @@ export class SampleComponent {
         public el: ElementRef
     ) {
         this._fuseTranslationLoaderService.loadTranslations(english, turkish);
-        window.onscroll =() => { this.myFunction() };
+        window.onscroll = () => { this.myFunction() };
     }
 
     myFunction() {
@@ -32,10 +32,10 @@ export class SampleComponent {
         }
         console.log('test')
     }
-    @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+    @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
         console.log($event);
         console.log("scrolling");
-      } 
+    }
     obj1 = {
         drop1: false,
         drop2: false,
@@ -246,28 +246,22 @@ export class SampleComponent {
         //  );
     }
 
-    
+
     // @HostListener('scroll', ['$event'])
     //     onElementScroll($event) {
     //         console.log($event)
     //     }
 
-    onCountoEnd(value?){
+    onCountoEnd(value?) {
         value = this.score.toFixed(2);
         this.countFrom = value;
     }
 
     isScrollDown = false;
-    scrollTo(className: string):void {
-        if(!this.isScrollDown){
-            const elementList = document.querySelectorAll('.' + className);
-            const element = elementList[0] as HTMLElement;
-            element.scrollIntoView();
-        } else{
-            const elementList = document.querySelectorAll('.page-layout');
-            const element = elementList[0] as HTMLElement;
-            element.scrollIntoView();
-        }
-        this.isScrollDown = !this.isScrollDown;
+    
+    scrollTo(className: string): void {
+        const elementList = document.querySelectorAll('.' + className);
+        const element = elementList[0] as HTMLElement;
+        element.scrollIntoView();
     }
 }

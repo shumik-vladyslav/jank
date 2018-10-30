@@ -60,6 +60,7 @@
 }
 .img4-wrap{
     width: 150px;
+    min-width: 150px;
     padding-right: 20px;
     img{
         margin-right: 20px;
@@ -77,6 +78,9 @@
 .scroll-wrap-select{
     max-height: calc( 100vh - 160px );
     overflow-y: auto;
+}
+.vendor-item{
+    width: 250px;
 }
 .second-caption{
     border-bottom: 1px solid #eaeaea;
@@ -128,4 +132,10 @@
             transform: rotate(180deg);
         }
     }
+}
+.border-right{
+    border-right: 1px solid #eaeaea;
+}
+.border-bottom{
+    border-bottom: 1px solid #eaeaea;
 }

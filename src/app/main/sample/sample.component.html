@@ -18,7 +18,7 @@
         <div class="header accent p-24" fxLayout="row" fxLayoutAlign="center center">
             <h2 class="m-0 fs-30">Calculate your Data Breach Risk Score
             </h2>
-            <h2 (click)="scrollTo('coment')">*</h2>
+            <h2 class="m-l-10 c-p" (click)="scrollTo('scrollBottom')">*</h2>
         </div>
         <!-- / CONTENT HEADER -->
         <div class="scroll-wrap-select content-card" style="margin-bottom: 20px;">
@@ -58,7 +58,7 @@
                         <!-- / CONTENT TOOLBAR -->
 
                         <!-- CONTENT -->
-                        <div class="content p-24">
+                        <div class="content p-24 border-bottom">
 
                             <div class="df">
 
@@ -90,8 +90,8 @@
                         </div>
                         <!-- / CONTENT -->
 
-                        <div class="df ">
-                            <div>
+                        <div class="df border-bottom">
+                            <div class="border-right">
                                 <!-- CONTENT TOOLBAR -->
                                 <div class="toolbar px-24 py-8 second-caption">
                                     <span>2. QA / Development</span>
@@ -191,7 +191,7 @@
                         <!-- / CONTENT -->
 
                         <!-- CONTENT TOOLBAR -->
-                        <div class="toolbar px-24 py-8 second-caption">
+                        <div class="toolbar px-24 py-8 second-caption text-center">
                             <span>4. Vendor / Partner Workforce</span>
                         </div>
                         <!-- / CONTENT TOOLBAR -->
@@ -201,13 +201,15 @@
 
                             <div class="df">
                                 <div class="img4-wrap">
-                                    <img width="137px" height="213px" style="margin-right: 20px" src="/assets/images/img/comunity.png" alt="">
+                                    <img width="137px" style="margin-right: 20px" src="/assets/images/img/comunity.png" alt="">
                                 </div>
-                                <div>
+                                <div class="selects-container">
 
-                                    <div fxLayout="row" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data4" style="margin-bottom: 20px;">
+                                    <div class="vendor-item" fxLayout="row" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data4" style="margin-bottom: 20px;">
                                         <mat-checkbox [(ngModel)]="obj4[item.key]" (ngModelChange)="calculateRisk($event)">{{item.name}}</mat-checkbox>
                                     </div>
+
+                                    <div class="scrollBottom"></div>
 
                                     <!-- <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of data4">
 
@@ -233,33 +235,60 @@
                         </div>
                         <!-- / CONTENT -->
 
-
-
-
-
-
-
-
                     </div>
 
                 </div>
 
-                <!-- <div fxLayout="row" fxLayoutAlign="center center">
-                <img width="134px" style="margin-right: 20px" src="/assets/images/img/risk.jpg" alt="">
-                <div class="lable-risk">
-                    Your Data Breach Risk <span class="value-risk">{{score.toFixed(2)}}%</span>
-                </div>
-            </div> -->
-
-                <button class="scroll-down" [ngClass]="{'active': isScrollDown === true}" (click)="scrollTo('coment')">
+                <!-- <button class="scroll-down" [ngClass]="{'active': isScrollDown === true}" (click)="scrollTo('coment')">
                     <i class="material-icons">
                         arrow_downward
                     </i>
-                </button>
+                </button> -->
             </div>
+
             <!-- / CONTENT CARD -->
 
         </div>
         <!-- / CENTER -->
 
+        <div class="m-b-20 p-l-20">
+            <p>
+                * Data Breach Risk Model:
+            </p>
+            <p>
+                The computed risk score is a measure of the probability that your system will be breached in routine attacks by hackers on
+                the internet.
+            </p>
+            <p>
+                This model takes into account the fact that the perimeter security and access controls will have temporary gaps leading to
+                data exposures.
+            </p>
+            <p>
+                The computed risk score is a simplified measure of the qualitative data in-security in the enterprise systems.
+            </p>
+            <p>
+                The higher the risk score, the higher the risk of data breach and sensitive data loss.
+            </p>
+            <p>
+                Threshold for acceptable Risk Score needs to be determined by the data owners in organizations.
+            </p>
+            <p>
+                Any Risk Score > 0 may introduce non-compliance with International, Federal or State Information Privacy Regulations.
+            </p>
+        </div>
+
+        <div class="p-l-20">
+            <p>
+                NIST References :
+            </p>
+            <p>
+                NISTIR 7564, Directions in Security Metrics Research,
+            </p>
+            <p>
+                NIST Special Publication 800-55 Revision 1: Performance Measurement Guide for Information Security
+            </p>
+        </div>
+
     </div>
+
+</div>
