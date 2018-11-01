@@ -93,7 +93,7 @@ export class SensitiveDataInventoryComponent implements OnInit {
   GetData(){
     this.VerifyService.GetSensetiveDataSummary(this.dataSensetive).subscribe((data:any)=> {
       console.log(data);
-      if(data._body){
+      if(data){
         this.data = data;
         this.dataSource = new MatTableDataSource(this.data);
         this.dataSource.paginator = this.paginator;
