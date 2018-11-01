@@ -57,6 +57,16 @@ export const navigation: FuseNavigation[] = [
                 
             },
             {
+                id       : 'Logout',
+                title    : 'Logout',
+                // translate: 'NAV.SAMPLE.TITLE',
+                type     : 'item',
+                icon     : 'equalizer',
+                externalUrl: true,
+                url      : 'https://cwoauth2.auth.us-east-2.amazoncognito.com/oauth2/logout?client_id=6a6irnufprh9v325hll67ncafu'
+                
+            },
+            {
                 id       : 'Verify Operations',
                 title    : 'Verify Operations',
                 // translate: 'NAV.SAMPLE.TITLE',
