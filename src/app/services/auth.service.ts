@@ -19,4 +19,8 @@ export class AuthService {
     this._code = localStorage.getItem('chipher_works_code');
   }
 
+  public signOut() {
+    localStorage.removeItem('chipher_works_code');
+  }
+
 }

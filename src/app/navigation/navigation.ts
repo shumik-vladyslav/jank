@@ -62,9 +62,9 @@ export const navigation: FuseNavigation[] = [
                 // translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
                 icon     : 'equalizer',
-                externalUrl: true,
-                url      : 'https://cwoauth2.auth.us-east-2.amazoncognito.com/oauth2/logout?client_id=6a6irnufprh9v325hll67ncafu&logout_uri=http://localhost:4200/'
-                
+                // externalUrl: true,
+                url      : '/sign-out'
+                ,
             },
             {
                 id       : 'Verify Operations',

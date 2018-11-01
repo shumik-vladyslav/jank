@@ -56,6 +56,7 @@ import { SampleComponent } from "./main/sample/sample.component";
 import { appRoutes } from "./app-routing.module";
 import { AuthCallbackComponent } from "./main/auth-callback/auth-callback.component";
 import { MyHttpInterceptor } from "./http-interceptor";
+import { SignOutComponent } from './main/sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { MyHttpInterceptor } from "./http-interceptor";
     ManageDeKeysComponent,
     DekeyDetailsComponent,
     SensitiveDataInventoryComponent,
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,

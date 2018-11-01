@@ -12,6 +12,7 @@ import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.comp
 import { SensitiveDataInventoryComponent } from './main/sensitive-data-inventory/sensitive-data-inventory.component';
 import { SampleComponent } from './main/sample/sample.component';
 import { AuthCallbackComponent } from './main/auth-callback/auth-callback.component';
+import { SignOutComponent } from './main/sign-out/sign-out.component';
 
 export const appRoutes: Routes = [
     {
@@ -61,5 +62,9 @@ export const appRoutes: Routes = [
     {
         path     : 'auth-callback',
         component: AuthCallbackComponent
-    },    
+    },
+    {
+        path     : 'sign-out',
+        component: SignOutComponent
+    },  
 ];
