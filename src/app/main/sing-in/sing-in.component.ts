@@ -110,7 +110,7 @@ export class SingInComponent implements OnInit {
             },(data) => {
                 this.errorMessage = true;
                 console.log(data)
-                this.errorMess = data.json()['message'];
+                this.errorMess = data['message'];
             });
         } else{
             this.errorMessage = true;

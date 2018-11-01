@@ -115,13 +115,13 @@ export class DataRequestComponent implements OnInit{
     this.VerifyServise.DataOwnerRequestQueue(this.dataRequest).subscribe((data: any) => {
       this.loading = false;
       console.log(data);
-      if(data._body) 
+      if(data) 
       {
-        this.data = data.json();
+        this.data = data;
         this.dataSource = new MatTableDataSource<any>(this.data);
         this.dataSource.paginator = this.paginator;
 
-        console.log(data.json());
+        // console.log(data);
       }
       else{
         this.data = [];

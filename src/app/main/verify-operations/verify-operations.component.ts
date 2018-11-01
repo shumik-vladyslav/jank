@@ -133,8 +133,8 @@ changeValue(){
    
     arr
    
-   } ).subscribe( items => {
-      for(let item of items.json().cwResponseList){
+   } ).subscribe( (items:any) => {
+      for(let item of items.cwResponseList){
         this.encryptedData[item.correlationId] = item.outputText;
         for(let i = 0; i < this.decryptRequestList.decryptRequestList.length; i++){
           console.log(this.decryptRequestList.decryptRequestList[i].correlationId,item.correlationId)
@@ -169,9 +169,9 @@ changeValue(){
    
        arr
    
-   }).subscribe( items => {
-      console.log(items.json());
-      for(let item of items.json().cwResponseList){
+   }).subscribe( (items: any) => {
+      console.log(items);
+      for(let item of items.cwResponseList){
         this.decryptData[item.correlationId] = item.outputText;
       }
     })

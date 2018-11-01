@@ -11,6 +11,7 @@ import { DataRequestComponent } from './main/data-request/data-request.component
 import { ManageDeKeysComponent } from './main/manage-de-keys/manage-de-keys.component';
 import { SensitiveDataInventoryComponent } from './main/sensitive-data-inventory/sensitive-data-inventory.component';
 import { SampleComponent } from './main/sample/sample.component';
+import { AuthCallbackComponent } from './main/auth-callback/auth-callback.component';
 
 export const appRoutes: Routes = [
     {
@@ -56,5 +57,9 @@ export const appRoutes: Routes = [
     {
         path     : 'sensitive-data',
         component: SensitiveDataInventoryComponent
+    },    
+    {
+        path     : 'auth-callback',
+        component: AuthCallbackComponent
     },    
 ];

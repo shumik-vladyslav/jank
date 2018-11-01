@@ -90,7 +90,7 @@ export class SingUpComponent implements OnInit, OnDestroy {
             }, (data) => {
                 this.errorMessege = true;
                 console.log(data)
-                this.errorMess = data.json()['message'];
+                this.errorMess = data['message'];
             });
         }
     }

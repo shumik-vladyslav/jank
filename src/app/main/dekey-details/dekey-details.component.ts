@@ -80,7 +80,7 @@ export class DekeyDetailsComponent implements OnInit, AfterViewInit {
     this.VerifyServise.PutDEKeyDetails(this.deKeyDetail).subscribe((data:any) => {
       this.saveEvent.emit(null);
       console.log(this.deKeyDetail);
-      console.log(data.json());
+      console.log(data);
     });
     document.getElementById("deKeySummaryFilter").scrollIntoView();
   }

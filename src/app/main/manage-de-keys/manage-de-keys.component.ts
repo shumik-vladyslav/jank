@@ -125,9 +125,9 @@ export class ManageDeKeysComponent implements OnInit {
   GetData(){
     this.VerifyServise.GetDEKeySummary(this.dataRequestKeys).subscribe((data:any) => {  
       console.log(data);   
-      if(data.json().result) 
+      if(data.result) 
       {
-        this.data = data.json().result;
+        this.data = data.result;
         this.dataSource = new MatTableDataSource<any>(this.data);
         this.dataSource.paginator = this.paginator;
         console.log("123 " + data);

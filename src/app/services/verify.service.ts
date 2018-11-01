@@ -1,5 +1,6 @@
 import { Http } from "@angular/http";
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,9 @@ export class VerifyService {
 
   url = "http://cwpilotone.us-east-2.elasticbeanstalk.com";
 
-  constructor(private http: Http) { }
+  constructor(
+    // private http: Http,
+    private http: HttpClient) { }
 
   getUrl(url, obj) {
     return this.http.post(url, obj);

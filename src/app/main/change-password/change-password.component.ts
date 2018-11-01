@@ -83,7 +83,7 @@ export class ChangePasswordComponent implements OnInit {
                 }
             },(data) => {
                 console.log(data)
-                this.errorMess = data.json()['message'];
+                this.errorMess = data['message'];
             });
             this.errorMessege = false;
         }
