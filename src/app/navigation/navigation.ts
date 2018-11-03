@@ -1,5 +1,6 @@
+import { AuthService } from './../services/auth.service';
 import { FuseNavigation } from '@fuse/types';
-
+const auth = new AuthService();
 export const navigation: FuseNavigation[] = [
     {
         id       : 'applications',
@@ -44,7 +45,7 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'equalizer',
                 externalUrl: true,
-                url      : 'https://cwoauth2.auth.us-east-2.amazoncognito.com/oauth2/authorize?client_id=6a6irnufprh9v325hll67ncafu&response_type=code&redirect_uri=http://localhost:4200/auth-callback&state=asdasdas&scope=openid&identity_provider=cognito'
+                url      : auth.getSignInLink()
             },
             {
                 id       : 'Register',
@@ -53,7 +54,7 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'equalizer',
                 externalUrl: true,
-                url      : 'https://cwoauth2.auth.us-east-2.amazoncognito.com/oauth2/authorize?client_id=6a6irnufprh9v325hll67ncafu&response_type=code&redirect_uri=http://localhost:4200/auth-callback&state=asdasdas&scope=openid&identity_provider=cognito'
+                url      : auth.getSignInLink()
                 
             },
             {

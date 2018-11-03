@@ -24,7 +24,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
     // Clone the request to add the new header.
     const authReq = req.clone({
-      headers: req.headers.set("Authorization", "code " + this.authService.code)
+      // headers: req.headers.set("Authorization", "code " + this.authService.chipher_works_access_token)
     });
 
     console.log("Sending request with new header now ...");

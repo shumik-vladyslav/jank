@@ -32,3 +32,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+client-id: 6a6irnufprh9v325hll67ncafu
+client-secret: 81i88lubiokb4rihlvsu6c5ev7aicjo0a74rdq2gpmalmsmquts
+client-name: Cognito Code Grant
+provider: cognito
+scope: openid
+redirect-uri-template: http://localhost:8080/login/oauth2/code/cognito
+authorization-grant-type: authorization_code
+Should i put this value for redirect URI?
